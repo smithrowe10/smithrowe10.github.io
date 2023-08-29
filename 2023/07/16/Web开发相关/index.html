@@ -16,7 +16,7 @@
   localSearch: undefined,
   translate: undefined,
   noticeOutdate: undefined,
-  highlight: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
   copy: {
     success: 'Copy successfully',
     error: 'Copy error',
@@ -313,26 +313,11 @@
 <p><strong>请求报文</strong></p>
 </li>
 </ul>
-<pre><code class="language-http">GET /v3/api-docs HTTP/1.1
-Host: localhost:8080
-Accept: application/json,*/*
-
-//首部与主体之间有空行
-...  // 请求主体：客户端发给服务端的数据
-
-// 以HTTP协议的1.1版本请求访问localhost:8080服务器上的/v3/api-docs资源
-</code></pre>
+<figure class="highlight http"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">GET</span> <span class="string">/v3/api-docs</span> <span class="meta">HTTP/1.1</span></span><br><span class="line"><span class="attribute">Host</span><span class="punctuation">: </span>localhost:8080</span><br><span class="line"><span class="attribute">Accept</span><span class="punctuation">: </span>application/json,*/*</span><br><span class="line"></span><br><span class="line"><span class="language-awk"><span class="regexp">//</span>首部与主体之间有空行</span></span><br><span class="line"><span class="language-awk">...  <span class="regexp">//</span> 请求主体：客户端发给服务端的数据</span></span><br><span class="line"><span class="language-awk"></span></span><br><span class="line"><span class="language-awk"><span class="regexp">//</span> 以HTTP协议的<span class="number">1.1</span>版本请求访问localhost:<span class="number">8080</span>服务器上的<span class="regexp">/v3/</span>api-docs资源</span></span><br></pre></td></tr></table></figure>
 <ul>
 <li><strong>响应报文</strong></li>
 </ul>
-<pre><code class="language-http">HTTP/1.1 200 OK
-Date:Sun,20 Dec 2020 06:33:44 GMT
-Content-Type:application/json
-
-...  //响应主体：服务端返回给客户端的内容
-
-//
-</code></pre>
+<figure class="highlight http"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">HTTP/1.1</span> <span class="number">200</span> OK</span><br><span class="line">Date:Sun,20 Dec 2020 06:33:44 GMT</span><br><span class="line">Content-Type:application/json</span><br><span class="line"></span><br><span class="line"><span class="language-awk">...  <span class="regexp">//</span>响应主体：服务端返回给客户端的内容</span></span><br><span class="line"><span class="language-awk"></span></span><br><span class="line"><span class="language-awk"><span class="regexp">//</span></span></span><br></pre></td></tr></table></figure>
 </li>
 <li>
 <p>状态码</p>
@@ -407,39 +392,22 @@ Content-Type:application/json
 <ul>
 <li>
 <p>获取数据</p>
-<pre><code class="language-http">GET &quot;http://localhost:8080/rest/user/1&quot; 
-</code></pre>
+<figure class="highlight http"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">GET &quot;http://localhost:8080/rest/user/1&quot; </span><br></pre></td></tr></table></figure>
 <p>定位id为1的用户（资源），用GET方法获取，查询资源；</p>
 </li>
 <li>
 <p>新增数据</p>
-<pre><code class="language-http">POST &quot;http://localhost:8080/rest/user&quot;
-Content-Type:application/json 
-&#123;
-&quot;name&quot;:&quot;ming&quot;,
-&quot;age&quot;:3,
-&quot;email&quot;:&quot;ming@test.com&quot;
-&#125;
-</code></pre>
+<figure class="highlight http"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">POST &quot;http://localhost:8080/rest/user&quot;</span><br><span class="line">Content-Type:application/json </span><br><span class="line">&#123;</span><br><span class="line">&quot;name&quot;:&quot;ming&quot;,</span><br><span class="line">&quot;age&quot;:3,</span><br><span class="line">&quot;email&quot;:&quot;ming@test.com&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>POST方法的参数通常会被放在请求体中，以Content-Type中的格式（JSON）提交到服务端；</p>
 </li>
 <li>
 <p>更新数据</p>
-<pre><code class="language-http">PUT &quot;http://localhost:8080/rest/user&quot;
-Content-Type:application/json 
-&#123;
-&quot;id&quot;:1,
-&quot;name&quot;:&quot;ming&quot;,
-&quot;age&quot;:21,
-&quot;email&quot;:&quot;ming@test.com&quot;
-&#125;
-</code></pre>
+<figure class="highlight http"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">PUT &quot;http://localhost:8080/rest/user&quot;</span><br><span class="line">Content-Type:application/json </span><br><span class="line">&#123;</span><br><span class="line">&quot;id&quot;:1,</span><br><span class="line">&quot;name&quot;:&quot;ming&quot;,</span><br><span class="line">&quot;age&quot;:21,</span><br><span class="line">&quot;email&quot;:&quot;ming@test.com&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>与POST的区别在于请求参数还要指定一个唯一字段（如id）；</p>
 </li>
 <li>
 <p>删除数据</p>
-<pre><code class="language-http">DELETE &quot;http://localhost:8080/rest/user/1&quot; 
-</code></pre>
+<figure class="highlight http"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">DELETE &quot;http://localhost:8080/rest/user/1&quot; </span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 </li>

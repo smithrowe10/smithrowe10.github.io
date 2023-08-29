@@ -7,7 +7,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://example.com/images/mysql.jpg">
 <meta property="article:published_time" content="2023-06-28T06:12:41.000Z">
-<meta property="article:modified_time" content="2023-07-01T03:13:43.382Z">
+<meta property="article:modified_time" content="2023-08-29T16:43:21.630Z">
 <meta property="article:author" content="ming">
 <meta property="article:tag" content="mysql">
 <meta property="article:tag" content="数据库">
@@ -18,7 +18,7 @@
   localSearch: undefined,
   translate: undefined,
   noticeOutdate: undefined,
-  highlight: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
   copy: {
     success: 'Copy successfully',
     error: 'Copy error',
@@ -59,7 +59,7 @@
   isHome: false,
   isHighlightShrink: false,
   isToc: true,
-  postUpdate: '2023-07-01 11:13:43'
+  postUpdate: '2023-08-30 00:43:21'
 }</script><noscript><style type="text/css">
   #nav {
     opacity: 1
@@ -163,7 +163,7 @@
       }
     }
     detectApple()
-    })(window)</script><meta name="generator" content="Hexo 6.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/smile_boy.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">15</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">13</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">3</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/images/mysql.jpg')"><nav id="nav"><span id="blog-info"><a href="/" title="ming's blog"><span class="site-name">ming's blog</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">MySQL学习笔记</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2023-06-28T06:12:41.000Z" title="Created 2023-06-28 14:12:41">2023-06-28</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2023-07-01T03:13:43.382Z" title="Updated 2023-07-01 11:13:43">2023-07-01</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">学习笔记</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="MySQL学习笔记"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h2 id="MySQL基础">MySQL基础</h2>
+    })(window)</script><meta name="generator" content="Hexo 6.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/smile_boy.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">15</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">13</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">3</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/images/mysql.jpg')"><nav id="nav"><span id="blog-info"><a href="/" title="ming's blog"><span class="site-name">ming's blog</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">MySQL学习笔记</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2023-06-28T06:12:41.000Z" title="Created 2023-06-28 14:12:41">2023-06-28</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2023-08-29T16:43:21.630Z" title="Updated 2023-08-30 00:43:21">2023-08-30</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">学习笔记</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="MySQL学习笔记"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h2 id="MySQL基础">MySQL基础</h2>
 <ul>
 <li>
 <p>数据库：保存有组织的数据库的容器；</p>
@@ -205,101 +205,11 @@
 </li>
 <li>
 <p>MySQL语句</p>
-<pre><code class="language-mysql">use database; // 选择数据库
-
-# 检索
-select distinct username from users; # 检索不同的行
-select distinct username from users 
-limit 5; # 返回不多于5行
-select distinct username from users 
-limit 5,3; # 返回从行5开始的3行
-
-# 排序
-select username 
-from users order by username; # 按username的字母顺序升序排序
-select username 
-from users order by username desc; # 降序
-select id,username,email 
-from users order by id,username; # 对id相同的行使用username排序
-
-# 过滤数据
-select username from users where userid &lt; 5 or userid &gt; 10;
-select username from users where userid between 3 and 5;
-select username from users where username is null # 空值检查
-select username from users 
-where userid &lt; 5 and username = 'xxx';
-select username from users where id in(10,12);
-
-# 使用通配符过滤
-
-# 百分号( % )通配符：表示任意字符出现任意次数
-select id,uername from users 
-where username like 'li%'; #检索以li起头的词
-# 下划线( _ )通配符：表示任意字符出现一次，即只匹配一个字符
-select id,uername from users 
-where username like '_i ming'; #检索Xi ming 格式的词
-
-# 使用正则表达式搜索
-select id from users 
-where regexp '.000'; # .表示任意字符
-select id from users 
-where regexp '1000 | 2000';
-
-# 拼接字段
-select Concat(information,'(',age,')') from users; # 输出实例：ming(20)
-# 使用别名
-select username as customer_name from users;
-
-# 汇总数据
-# AVG() COUNT() MAX() MIN() SUM()
-select AVG(price) as avg_price from products;
-select COUNT(*) as num_pro from products; # 对表中的所有行的数目计数（包括NULL）
-                                         # COUNT(COLUMN)：对特定的列中具有值的行进行计数，忽略NULL
-                                         # SUM(COLUMN)：返回指定列值的和
-
-# 插入数据
-insert into users(username,email) 
-values('mike','mike@test.com'); 
-
-insert into users(username,email) 
-values('mike','mike@test.com'), 
-values('jack','jack@test.com'); # 列名和次序相同时，可以同时插入多行
-
-# 更新数据
-update users
-set username = 'xxx',email = 'xx@xxx.com'
-where id = 1000;
-
-# 删除数据
-delete from users
-where id = 1000;
-
-# !!! 如果不带where字句，则会删除或更新所有行
-</code></pre>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br></pre></td><td class="code"><pre><span class="line">use database; <span class="operator">/</span><span class="operator">/</span> 选择数据库</span><br><span class="line"></span><br><span class="line"># 检索</span><br><span class="line"><span class="keyword">select</span> <span class="keyword">distinct</span> username <span class="keyword">from</span> users; # 检索不同的行</span><br><span class="line"><span class="keyword">select</span> <span class="keyword">distinct</span> username <span class="keyword">from</span> users </span><br><span class="line">limit <span class="number">5</span>; # 返回不多于<span class="number">5</span>行</span><br><span class="line"><span class="keyword">select</span> <span class="keyword">distinct</span> username <span class="keyword">from</span> users </span><br><span class="line">limit <span class="number">5</span>,<span class="number">3</span>; # 返回从行<span class="number">5</span>开始的<span class="number">3</span>行</span><br><span class="line"></span><br><span class="line"># 排序</span><br><span class="line"><span class="keyword">select</span> username </span><br><span class="line"><span class="keyword">from</span> users <span class="keyword">order</span> <span class="keyword">by</span> username; # 按username的字母顺序升序排序</span><br><span class="line"><span class="keyword">select</span> username </span><br><span class="line"><span class="keyword">from</span> users <span class="keyword">order</span> <span class="keyword">by</span> username <span class="keyword">desc</span>; # 降序</span><br><span class="line"><span class="keyword">select</span> id,username,email </span><br><span class="line"><span class="keyword">from</span> users <span class="keyword">order</span> <span class="keyword">by</span> id,username; # 对id相同的行使用username排序</span><br><span class="line"></span><br><span class="line"># 过滤数据</span><br><span class="line"><span class="keyword">select</span> username <span class="keyword">from</span> users <span class="keyword">where</span> userid <span class="operator">&lt;</span> <span class="number">5</span> <span class="keyword">or</span> userid <span class="operator">&gt;</span> <span class="number">10</span>;</span><br><span class="line"><span class="keyword">select</span> username <span class="keyword">from</span> users <span class="keyword">where</span> userid <span class="keyword">between</span> <span class="number">3</span> <span class="keyword">and</span> <span class="number">5</span>;</span><br><span class="line"><span class="keyword">select</span> username <span class="keyword">from</span> users <span class="keyword">where</span> username <span class="keyword">is</span> <span class="keyword">null</span> # 空值检查</span><br><span class="line"><span class="keyword">select</span> username <span class="keyword">from</span> users </span><br><span class="line"><span class="keyword">where</span> userid <span class="operator">&lt;</span> <span class="number">5</span> <span class="keyword">and</span> username <span class="operator">=</span> <span class="string">&#x27;xxx&#x27;</span>;</span><br><span class="line"><span class="keyword">select</span> username <span class="keyword">from</span> users <span class="keyword">where</span> id <span class="keyword">in</span>(<span class="number">10</span>,<span class="number">12</span>);</span><br><span class="line"></span><br><span class="line"># 使用通配符过滤</span><br><span class="line"></span><br><span class="line"># 百分号( <span class="operator">%</span> )通配符：表示任意字符出现任意次数</span><br><span class="line"><span class="keyword">select</span> id,uername <span class="keyword">from</span> users </span><br><span class="line"><span class="keyword">where</span> username <span class="keyword">like</span> <span class="string">&#x27;li%&#x27;</span>; #检索以li起头的词</span><br><span class="line"># 下划线( _ )通配符：表示任意字符出现一次，即只匹配一个字符</span><br><span class="line"><span class="keyword">select</span> id,uername <span class="keyword">from</span> users </span><br><span class="line"><span class="keyword">where</span> username <span class="keyword">like</span> <span class="string">&#x27;_i ming&#x27;</span>; #检索Xi ming 格式的词</span><br><span class="line"></span><br><span class="line"># 使用正则表达式搜索</span><br><span class="line"><span class="keyword">select</span> id <span class="keyword">from</span> users </span><br><span class="line"><span class="keyword">where</span> regexp <span class="string">&#x27;.000&#x27;</span>; # .表示任意字符</span><br><span class="line"><span class="keyword">select</span> id <span class="keyword">from</span> users </span><br><span class="line"><span class="keyword">where</span> regexp <span class="string">&#x27;1000 | 2000&#x27;</span>;</span><br><span class="line"></span><br><span class="line"># 拼接字段</span><br><span class="line"><span class="keyword">select</span> Concat(information,<span class="string">&#x27;(&#x27;</span>,age,<span class="string">&#x27;)&#x27;</span>) <span class="keyword">from</span> users; # 输出实例：ming(<span class="number">20</span>)</span><br><span class="line"># 使用别名</span><br><span class="line"><span class="keyword">select</span> username <span class="keyword">as</span> customer_name <span class="keyword">from</span> users;</span><br><span class="line"></span><br><span class="line"># 汇总数据</span><br><span class="line"># <span class="built_in">AVG</span>() <span class="built_in">COUNT</span>() <span class="built_in">MAX</span>() <span class="built_in">MIN</span>() <span class="built_in">SUM</span>()</span><br><span class="line"><span class="keyword">select</span> <span class="built_in">AVG</span>(price) <span class="keyword">as</span> avg_price <span class="keyword">from</span> products;</span><br><span class="line"><span class="keyword">select</span> <span class="built_in">COUNT</span>(<span class="operator">*</span>) <span class="keyword">as</span> num_pro <span class="keyword">from</span> products; # 对表中的所有行的数目计数（包括<span class="keyword">NULL</span>）</span><br><span class="line">                                         # <span class="built_in">COUNT</span>(<span class="keyword">COLUMN</span>)：对特定的列中具有值的行进行计数，忽略<span class="keyword">NULL</span></span><br><span class="line">                                         # <span class="built_in">SUM</span>(<span class="keyword">COLUMN</span>)：返回指定列值的和</span><br><span class="line"></span><br><span class="line"># 插入数据</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> users(username,email) </span><br><span class="line"><span class="keyword">values</span>(<span class="string">&#x27;mike&#x27;</span>,<span class="string">&#x27;mike@test.com&#x27;</span>); </span><br><span class="line"></span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> users(username,email) </span><br><span class="line"><span class="keyword">values</span>(<span class="string">&#x27;mike&#x27;</span>,<span class="string">&#x27;mike@test.com&#x27;</span>), </span><br><span class="line"><span class="keyword">values</span>(<span class="string">&#x27;jack&#x27;</span>,<span class="string">&#x27;jack@test.com&#x27;</span>); # 列名和次序相同时，可以同时插入多行</span><br><span class="line"></span><br><span class="line"># 更新数据</span><br><span class="line"><span class="keyword">update</span> users</span><br><span class="line"><span class="keyword">set</span> username <span class="operator">=</span> <span class="string">&#x27;xxx&#x27;</span>,email <span class="operator">=</span> <span class="string">&#x27;xx@xxx.com&#x27;</span></span><br><span class="line"><span class="keyword">where</span> id <span class="operator">=</span> <span class="number">1000</span>;</span><br><span class="line"></span><br><span class="line"># 删除数据</span><br><span class="line"><span class="keyword">delete</span> <span class="keyword">from</span> users</span><br><span class="line"><span class="keyword">where</span> id <span class="operator">=</span> <span class="number">1000</span>;</span><br><span class="line"></span><br><span class="line"># <span class="operator">!</span><span class="operator">!</span><span class="operator">!</span> 如果不带<span class="keyword">where</span>字句，则会删除或更新所有行</span><br></pre></td></tr></table></figure>
 </li>
 <li>
 <p><strong>创建和操纵表</strong></p>
-<pre><code class="language-mysql"># 创建表
-create table users
-(
-    id            int        not NULL auto_increment, # 自动增量
-    username      char(50)   not NULL,
-    age           int        not NULL default 18, #使用默认值
-    email         char(50)   NULL,
-    passward      char(50)   NULL,
-    primary key(id) # 定义主键
-)engine=InnoDB;
-
-# 更新表
-alter table users
-add phone_number char(20); # 表中插入新的列，常用来添加外键
-
-alter table users
-drop column phone_number;# 删除表中的列
-
-# 删除表
-drop table users;
-</code></pre>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"># 创建表</span><br><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> users</span><br><span class="line">(</span><br><span class="line">    id            <span class="type">int</span>        <span class="keyword">not</span> <span class="keyword">NULL</span> auto_increment, # 自动增量</span><br><span class="line">    username      <span class="type">char</span>(<span class="number">50</span>)   <span class="keyword">not</span> <span class="keyword">NULL</span>,</span><br><span class="line">    age           <span class="type">int</span>        <span class="keyword">not</span> <span class="keyword">NULL</span> <span class="keyword">default</span> <span class="number">18</span>, #使用默认值</span><br><span class="line">    email         <span class="type">char</span>(<span class="number">50</span>)   <span class="keyword">NULL</span>,</span><br><span class="line">    passward      <span class="type">char</span>(<span class="number">50</span>)   <span class="keyword">NULL</span>,</span><br><span class="line">    <span class="keyword">primary</span> key(id) # 定义主键</span><br><span class="line">)engine<span class="operator">=</span>InnoDB;</span><br><span class="line"></span><br><span class="line"># 更新表</span><br><span class="line"><span class="keyword">alter</span> <span class="keyword">table</span> users</span><br><span class="line"><span class="keyword">add</span> phone_number <span class="type">char</span>(<span class="number">20</span>); # 表中插入新的列，常用来添加外键</span><br><span class="line"></span><br><span class="line"><span class="keyword">alter</span> <span class="keyword">table</span> users</span><br><span class="line"><span class="keyword">drop</span> <span class="keyword">column</span> phone_number;# 删除表中的列</span><br><span class="line"></span><br><span class="line"># 删除表</span><br><span class="line"><span class="keyword">drop</span> <span class="keyword">table</span> users;</span><br></pre></td></tr></table></figure>
 </li>
 <li>
 <p><strong>子查询</strong></p>
@@ -309,11 +219,7 @@ drop table users;
 </li>
 <li>
 <p>子查询：即嵌套在其他查询中的查询；</p>
-<pre><code class="language-mysql">select username from users 
-where id in( select id from users
-            where username like 'li%'
-); # 由内向外执行
-</code></pre>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> username <span class="keyword">from</span> users </span><br><span class="line"><span class="keyword">where</span> id <span class="keyword">in</span>( <span class="keyword">select</span> id <span class="keyword">from</span> users</span><br><span class="line">            <span class="keyword">where</span> username <span class="keyword">like</span> <span class="string">&#x27;li%&#x27;</span></span><br><span class="line">); # 由内向外执行</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 </li>
@@ -323,12 +229,7 @@ where id in( select id from users
 <li><strong>外键</strong>（foreign key）：外键为某个表中的一列，它包含了另一个表的主键值；</li>
 <li>如果数据从存储在多个表中，使用<strong>联结</strong>检索数据</li>
 </ul>
-<pre><code class="language-mysql"># users 和 products两个表
-select username,prod_name,prod_price
-from users,products
-where users.prod_id = products.prod_id  # 为避免歧义，使用完全限定列名
-order by username,prod_name;
-</code></pre>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># users 和 products两个表</span><br><span class="line"><span class="keyword">select</span> username,prod_name,prod_price</span><br><span class="line"><span class="keyword">from</span> users,products</span><br><span class="line"><span class="keyword">where</span> users.prod_id <span class="operator">=</span> products.prod_id  # 为避免歧义，使用完全限定列名</span><br><span class="line"><span class="keyword">order</span> <span class="keyword">by</span> username,prod_name;</span><br></pre></td></tr></table></figure>
 </li>
 <li>
 <p>视图</p>
@@ -373,35 +274,7 @@ order by username,prod_name;
 <li>游标（Cursor）是一种数据库对象，用于在SQL语句执行过程中，对结果集进行逐行处理。游标可以看作是一个指向结果集中某一行的指针，程序可以使用游标来逐行读取或更新结果集中的数据。</li>
 <li>MySQL游标<strong>只能用于存储过程</strong>；</li>
 </ul>
-<pre><code class="language-mysql">-- 定义存储过程
-CREATE PROCEDURE count_product_sales()
-BEGIN
-    -- 定义游标
-    DECLARE cur CURSOR FOR SELECT product_id FROM product;
-    -- 定义变量
-    DECLARE product_id INT;
-    DECLARE sales_count INT;
-    -- 打开游标
-    OPEN cur;
-    -- 循环读取数据
-    WHILE TRUE DO
-        -- 读取数据
-        FETCH cur INTO product_id;
-        -- 判断是否读取完毕
-        IF (SQLSTATE = '02000') THEN
-            LEAVE WHILE;
-        END IF;
-        -- 计算销售数量
-        SELECT COUNT(*) INTO sales_count FROM order WHERE product_id = cur_product_id;
-        -- 更新产品表格
-        UPDATE product SET sales_count = sales_count + sales_count WHERE id = cur_product_id;
-    END WHILE;
-    -- 关闭游标
-    CLOSE cur;
-    -- 销毁游标
-    DEALLOCATE cur;
-END
-</code></pre>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 定义存储过程</span></span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">PROCEDURE</span> count_product_sales()</span><br><span class="line"><span class="keyword">BEGIN</span></span><br><span class="line">    <span class="comment">-- 定义游标</span></span><br><span class="line">    <span class="keyword">DECLARE</span> cur <span class="keyword">CURSOR</span> <span class="keyword">FOR</span> <span class="keyword">SELECT</span> product_id <span class="keyword">FROM</span> product;</span><br><span class="line">    <span class="comment">-- 定义变量</span></span><br><span class="line">    <span class="keyword">DECLARE</span> product_id <span class="type">INT</span>;</span><br><span class="line">    <span class="keyword">DECLARE</span> sales_count <span class="type">INT</span>;</span><br><span class="line">    <span class="comment">-- 打开游标</span></span><br><span class="line">    <span class="keyword">OPEN</span> cur;</span><br><span class="line">    <span class="comment">-- 循环读取数据</span></span><br><span class="line">    WHILE <span class="literal">TRUE</span> DO</span><br><span class="line">        <span class="comment">-- 读取数据</span></span><br><span class="line">        <span class="keyword">FETCH</span> cur <span class="keyword">INTO</span> product_id;</span><br><span class="line">        <span class="comment">-- 判断是否读取完毕</span></span><br><span class="line">        IF (<span class="keyword">SQLSTATE</span> <span class="operator">=</span> <span class="string">&#x27;02000&#x27;</span>) <span class="keyword">THEN</span></span><br><span class="line">            LEAVE WHILE;</span><br><span class="line">        <span class="keyword">END</span> IF;</span><br><span class="line">        <span class="comment">-- 计算销售数量</span></span><br><span class="line">        <span class="keyword">SELECT</span> <span class="built_in">COUNT</span>(<span class="operator">*</span>) <span class="keyword">INTO</span> sales_count <span class="keyword">FROM</span> <span class="keyword">order</span> <span class="keyword">WHERE</span> product_id <span class="operator">=</span> cur_product_id;</span><br><span class="line">        <span class="comment">-- 更新产品表格</span></span><br><span class="line">        <span class="keyword">UPDATE</span> product <span class="keyword">SET</span> sales_count <span class="operator">=</span> sales_count <span class="operator">+</span> sales_count <span class="keyword">WHERE</span> id <span class="operator">=</span> cur_product_id;</span><br><span class="line">    <span class="keyword">END</span> WHILE;</span><br><span class="line">    <span class="comment">-- 关闭游标</span></span><br><span class="line">    <span class="keyword">CLOSE</span> cur;</span><br><span class="line">    <span class="comment">-- 销毁游标</span></span><br><span class="line">    <span class="keyword">DEALLOCATE</span> cur;</span><br><span class="line"><span class="keyword">END</span></span><br></pre></td></tr></table></figure>
 </li>
 <li>
 <p>管理事务处理</p>
@@ -420,10 +293,7 @@ END
 </li>
 <li>
 <p>使用<code>rollback</code></p>
-<pre><code class="language-mysql">start transaction;
-delete from users;
-rollback; # 回退 start transaction 之后的所有语句
-</code></pre>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">start</span> transaction;</span><br><span class="line"><span class="keyword">delete</span> <span class="keyword">from</span> users;</span><br><span class="line"><span class="keyword">rollback</span>; # 回退 <span class="keyword">start</span> transaction 之后的所有语句</span><br></pre></td></tr></table></figure>
 <p>显然，<code>rollback</code>只能在一个事务内使用；</p>
 <p>可以回退<code>insert</code>，<code>update</code>, <code>delete</code>语句，不能回退<code>select</code> 语句（也没意义）。</p>
 </li>
@@ -433,23 +303,14 @@ rollback; # 回退 start transaction 之后的所有语句
 <li>一般的MySQL语句都是针对数据库表执行和操作的，提交操作是自动的，即<strong>隐含提交</strong>；</li>
 <li>事务处理块中必须进行明确的提交，使用<code>commit</code></li>
 </ul>
-<pre><code class="language-mysql">start transaction;
-delete from users where id = 1;
-delete from articles where id = 1;
-commit; # 如果以上某条语句失败，则commit语句失效
-</code></pre>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">start</span> transaction;</span><br><span class="line"><span class="keyword">delete</span> <span class="keyword">from</span> users <span class="keyword">where</span> id <span class="operator">=</span> <span class="number">1</span>;</span><br><span class="line"><span class="keyword">delete</span> <span class="keyword">from</span> articles <span class="keyword">where</span> id <span class="operator">=</span> <span class="number">1</span>;</span><br><span class="line"><span class="keyword">commit</span>; # 如果以上某条语句失败，则<span class="keyword">commit</span>语句失效</span><br></pre></td></tr></table></figure>
 </li>
 <li>
 <p><strong>隐含事务关闭</strong>：当<code>rollback</code> 和<code>commit</code>执行后，事务会自动关闭（将来的操作变为隐含提交）</p>
 </li>
 <li>
 <p>使用<code>savepoint</code></p>
-<pre><code class="language-mysql">start transaction;
-delete from users where id = 1;
-savepoint delete1;
-delete from articles where id = 1;
-rollback to delete1;
-</code></pre>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">start</span> transaction;</span><br><span class="line"><span class="keyword">delete</span> <span class="keyword">from</span> users <span class="keyword">where</span> id <span class="operator">=</span> <span class="number">1</span>;</span><br><span class="line"><span class="keyword">savepoint</span> delete1;</span><br><span class="line"><span class="keyword">delete</span> <span class="keyword">from</span> articles <span class="keyword">where</span> id <span class="operator">=</span> <span class="number">1</span>;</span><br><span class="line"><span class="keyword">rollback</span> <span class="keyword">to</span> delete1;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 </li>
@@ -542,9 +403,7 @@ rollback to delete1;
 <ul>
 <li>
 <p>哈希表是键值对的集合，通过键(key)即可快速取出对应的值(value)，时间复杂度接近O(1)。</p>
-<pre><code class="language-java">hash = hashfunc(key)
-index = hash % array_size
-</code></pre>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hash = hashfunc(key)</span><br><span class="line">index = hash % array_size</span><br></pre></td></tr></table></figure>
 <p>哈希算法有个 <strong>Hash 冲突</strong> 问题，也就是说多个不同的 key 最后得到的 index 相同。通常情况下，我们常用的解决办法是 <strong>链地址法</strong>。链地址法就是将哈希冲突数据存放在链表中。</p>
 </li>
 <li>

@@ -16,7 +16,7 @@
   localSearch: undefined,
   translate: undefined,
   noticeOutdate: undefined,
-  highlight: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
   copy: {
     success: 'Copy successfully',
     error: 'Copy error',
@@ -438,39 +438,7 @@ $$<br>
 </ul>
 </li>
 </ul>
-<pre><code class="language-java">/**
- * 生成全局唯一ID（** 雪花算法 **）
- */
-@Component
-public class UIDWorker &#123;
-
-    // 开始时间戳
-    private static final long BEGIN_TIMESTAMP = 1692213900;
-
-    @Resource
-    private StringRedisTemplate stringRedisTemplate;
-
-    public Long nextId(String prefix)&#123;
-        // 生成时间戳
-        LocalDateTime now = LocalDateTime.now();
-        long nowSecond = now.toEpochSecond(ZoneOffset.UTC);
-        long timestamp = nowSecond - BEGIN_TIMESTAMP;
-
-        // 机器ID
-        long machineId = 1;
-
-        // 生成序列号(通过Redis自增生成序列)
-        String nowDateTime = now.format(DateTimeFormatter.ofPattern(&quot;yyyy:MM:dd&quot;));
-        long increment = stringRedisTemplate.opsForValue()
-                         .increment(&quot;icr&quot; + prefix + &quot;:&quot; + nowDateTime);
-
-        // 拼接并返回
-        long id = timestamp &lt;&lt; 22 | machineId &lt;&lt; 12 | increment;
-
-        return id;
-    &#125;
-&#125;
-</code></pre>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 生成全局唯一ID（** 雪花算法 **）</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">UIDWorker</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 开始时间戳</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="type">long</span> <span class="variable">BEGIN_TIMESTAMP</span> <span class="operator">=</span> <span class="number">1692213900</span>;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Resource</span></span><br><span class="line">    <span class="keyword">private</span> StringRedisTemplate stringRedisTemplate;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> Long <span class="title function_">nextId</span><span class="params">(String prefix)</span>&#123;</span><br><span class="line">        <span class="comment">// 生成时间戳</span></span><br><span class="line">        <span class="type">LocalDateTime</span> <span class="variable">now</span> <span class="operator">=</span> LocalDateTime.now();</span><br><span class="line">        <span class="type">long</span> <span class="variable">nowSecond</span> <span class="operator">=</span> now.toEpochSecond(ZoneOffset.UTC);</span><br><span class="line">        <span class="type">long</span> <span class="variable">timestamp</span> <span class="operator">=</span> nowSecond - BEGIN_TIMESTAMP;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 机器ID</span></span><br><span class="line">        <span class="type">long</span> <span class="variable">machineId</span> <span class="operator">=</span> <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 生成序列号(通过Redis自增生成序列)</span></span><br><span class="line">        <span class="type">String</span> <span class="variable">nowDateTime</span> <span class="operator">=</span> now.format(DateTimeFormatter.ofPattern(<span class="string">&quot;yyyy:MM:dd&quot;</span>));</span><br><span class="line">        <span class="type">long</span> <span class="variable">increment</span> <span class="operator">=</span> stringRedisTemplate.opsForValue()</span><br><span class="line">                         .increment(<span class="string">&quot;icr&quot;</span> + prefix + <span class="string">&quot;:&quot;</span> + nowDateTime);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 拼接并返回</span></span><br><span class="line">        <span class="type">long</span> <span class="variable">id</span> <span class="operator">=</span> timestamp &lt;&lt; <span class="number">22</span> | machineId &lt;&lt; <span class="number">12</span> | increment;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> id;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 <li>
 <p>雪花算法的**时钟回拨 **问题</p>
@@ -555,13 +523,7 @@ public class UIDWorker &#123;
 <p><strong>CAS</strong>（<code>Compare And Swap</code>）：CAS算法有三个操作数，通过内存中的值（V）、预期原始值（A)、修改后的新值。<br>
 （1）如果内存中的值和预期原始值相等， 就将修改后的新值保存到内存中。<br>
 （2）如果内存中的值和预期原始值不相等，说明共享数据已经被修改，放弃已经所做的操作，然后重新执行刚才的操作，直到重试成功。</p>
-<pre><code class="language-java">// 扣减库存
-boolean isSuccess = seckillVoucherService.update()
-        .setSql(&quot;stock = stock - 1&quot;) // set stock = stock - 1
-        .eq(&quot;voucher_id&quot;, voucherId) // where ...
-        .eq(&quot;stock&quot;,voucher.getStock())
-        .update();
-</code></pre>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 扣减库存</span></span><br><span class="line"><span class="type">boolean</span> <span class="variable">isSuccess</span> <span class="operator">=</span> seckillVoucherService.update()</span><br><span class="line">        .setSql(<span class="string">&quot;stock = stock - 1&quot;</span>) <span class="comment">// set stock = stock - 1</span></span><br><span class="line">        .eq(<span class="string">&quot;voucher_id&quot;</span>, voucherId) <span class="comment">// where ...</span></span><br><span class="line">        .eq(<span class="string">&quot;stock&quot;</span>,voucher.getStock())</span><br><span class="line">        .update();</span><br></pre></td></tr></table></figure>
 <p>该方法能够解决超卖问题，但是高并发场景下成功率过低，影响业务；</p>
 </li>
 </ul>
@@ -574,64 +536,19 @@ boolean isSuccess = seckillVoucherService.update()
 </li>
 <li>
 <p>加<code>sycronized</code>锁实现</p>
-<pre><code class="language-java">@Transactional
-public Result createVoucherOrder(Long voucherId) &#123;
-    // 获取用户Id
-    Long userId = UserHolder.getUser().getId();
-    // toString()底层每次调用都会重新创建一个String对象，导致synchronized失效
-    // 调用intern()方法:如果字符串池中存在该字符串对象，则直接返回，而不是重新创建一个字符串
-    synchronized (userId.toString().intern())&#123;
-        // 一人一单
-        Long count = query().eq(&quot;user_id&quot;, userId).eq(&quot;voucher_id&quot;, voucherId).count();
-        if(count&gt;0)&#123;
-            return Result.fail(&quot;用户已经抢购过该优惠券！&quot;);
-        &#125;
-    &#125;
-&#125;
-</code></pre>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Transactional</span></span><br><span class="line"><span class="keyword">public</span> Result <span class="title function_">createVoucherOrder</span><span class="params">(Long voucherId)</span> &#123;</span><br><span class="line">    <span class="comment">// 获取用户Id</span></span><br><span class="line">    <span class="type">Long</span> <span class="variable">userId</span> <span class="operator">=</span> UserHolder.getUser().getId();</span><br><span class="line">    <span class="comment">// toString()底层每次调用都会重新创建一个String对象，导致synchronized失效</span></span><br><span class="line">    <span class="comment">// 调用intern()方法:如果字符串池中存在该字符串对象，则直接返回，而不是重新创建一个字符串</span></span><br><span class="line">    <span class="keyword">synchronized</span> (userId.toString().intern())&#123;</span><br><span class="line">        <span class="comment">// 一人一单</span></span><br><span class="line">        <span class="type">Long</span> <span class="variable">count</span> <span class="operator">=</span> query().eq(<span class="string">&quot;user_id&quot;</span>, userId).eq(<span class="string">&quot;voucher_id&quot;</span>, voucherId).count();</span><br><span class="line">        <span class="keyword">if</span>(count&gt;<span class="number">0</span>)&#123;</span><br><span class="line">            <span class="keyword">return</span> Result.fail(<span class="string">&quot;用户已经抢购过该优惠券！&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 <li>
 <p>以上代码可能会导致线程安全问题</p>
-<pre><code class="language-java">@Transactional
-public Result createVoucherOrder(Long voucherId) &#123;
-    ...
-    synchronized (userId.toString().intern())&#123;
-        // 一人一单
-        ...
-    &#125;
-    // 锁释放，此时其他线程可以进来
-    // 而事务尚未提交，线程不安全！
-&#125;
-</code></pre>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Transactional</span></span><br><span class="line"><span class="keyword">public</span> Result <span class="title function_">createVoucherOrder</span><span class="params">(Long voucherId)</span> &#123;</span><br><span class="line">    ...</span><br><span class="line">    <span class="keyword">synchronized</span> (userId.toString().intern())&#123;</span><br><span class="line">        <span class="comment">// 一人一单</span></span><br><span class="line">        ...</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 锁释放，此时其他线程可以进来</span></span><br><span class="line">    <span class="comment">// 而事务尚未提交，线程不安全！</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 <li>
 <p>优化</p>
-<pre><code class="language-java">@Override
-public Result seckillVoucher(Long voucherId) &#123;
-    Long userId = UserHolder.getUser().getId();
-    // toString()底层每次调用都会重新创建一个String对象，导致synchronized失效
-    // 调用intern()方法:如果字符串池中存在该字符串对象，则直接返回，而不是重新创建一个字符串
-    synchronized (userId.toString().intern()) &#123;
-        return this.createVoucherOrder(voucherId); // **事务失效** 问题
-        // 事务已提交
-    &#125; // 释放锁
-&#125;
-
-@Transactional
-public Result createVoucherOrder(Long voucherId) &#123;
-    ...
-&#125;
-</code></pre>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="keyword">public</span> Result <span class="title function_">seckillVoucher</span><span class="params">(Long voucherId)</span> &#123;</span><br><span class="line">    <span class="type">Long</span> <span class="variable">userId</span> <span class="operator">=</span> UserHolder.getUser().getId();</span><br><span class="line">    <span class="comment">// toString()底层每次调用都会重新创建一个String对象，导致synchronized失效</span></span><br><span class="line">    <span class="comment">// 调用intern()方法:如果字符串池中存在该字符串对象，则直接返回，而不是重新创建一个字符串</span></span><br><span class="line">    <span class="keyword">synchronized</span> (userId.toString().intern()) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">this</span>.createVoucherOrder(voucherId); <span class="comment">// **事务失效** 问题</span></span><br><span class="line">        <span class="comment">// 事务已提交</span></span><br><span class="line">    &#125; <span class="comment">// 释放锁</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Transactional</span></span><br><span class="line"><span class="keyword">public</span> Result <span class="title function_">createVoucherOrder</span><span class="params">(Long voucherId)</span> &#123;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 <li>
 <p>以上有可能导致<strong>事务失效</strong>问题，解决方案如下：</p>
-<pre><code class="language-java">Long userId = UserHolder.getUser().getId();
-synchronized (userId.toString().intern()) &#123;
-    // 拿到当前对象的代理对象
-    IVoucherOrderService proxy = (IVoucherOrderService) AopContext.currentProxy();
-    return proxy.createVoucherOrder(voucherId);
-&#125;
-</code></pre>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">Long</span> <span class="variable">userId</span> <span class="operator">=</span> UserHolder.getUser().getId();</span><br><span class="line"><span class="keyword">synchronized</span> (userId.toString().intern()) &#123;</span><br><span class="line">    <span class="comment">// 拿到当前对象的代理对象</span></span><br><span class="line">    <span class="type">IVoucherOrderService</span> <span class="variable">proxy</span> <span class="operator">=</span> (IVoucherOrderService) AopContext.currentProxy();</span><br><span class="line">    <span class="keyword">return</span> proxy.createVoucherOrder(voucherId);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 <h2 id="分布式锁">分布式锁</h2>
@@ -692,86 +609,19 @@ synchronized (userId.toString().intern()) &#123;
 <ul>
 <li>
 <p>获取锁</p>
-<pre><code class="language-sql"># 利用setnx的互斥特性
-SETNX lock thread1
-# 添加锁过期时间，避免服务宕机引起的死锁
-EXPIRE lock 30
-</code></pre>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># 利用setnx的互斥特性</span><br><span class="line">SETNX lock thread1</span><br><span class="line"># 添加锁过期时间，避免服务宕机引起的死锁</span><br><span class="line">EXPIRE lock <span class="number">30</span></span><br></pre></td></tr></table></figure>
 <p>以上两条命令不具备原子性，可以使用以下命令：</p>
-<pre><code class="language-sql">SET lock thread NX EX 30
-</code></pre>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SET</span> lock thread NX EX <span class="number">30</span></span><br></pre></td></tr></table></figure>
 </li>
 <li>
 <p>释放锁</p>
 <p>手动释放或超时释放</p>
-<pre><code class="language-sql"># 删除即可
-DEL lock
-</code></pre>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 删除即可</span><br><span class="line">DEL lock</span><br></pre></td></tr></table></figure>
 </li>
 <li>
 <p>实现Redis分布式锁</p>
-<pre><code class="language-java">public interface ILock &#123;
-
-    /**
-     * 尝试获取锁
-     * @param timeoutSec 锁持有的超时时间，过期后自动释放
-     * @return true代表获取锁成功; false代表获取锁失败
-     */
-    boolean tryLock(long timeoutSec);
-
-    /**
-     * 释放锁
-     */
-    void unlock();
-&#125;
-</code></pre>
-<pre><code class="language-java">public class SimpleRedisLock implements ILock &#123;
-
-    private StringRedisTemplate stringRedisTemplate;
-
-    private String lockName;
-
-    private static final String ID_PREFIX = UUID.randomUUID(true) + &quot;-&quot;;
-
-    private static final String LOCK_PREFIX = &quot;lock_&quot;;
-
-    public SimpleRedisLock(StringRedisTemplate stringRedisTemplate, String lockName) &#123;
-        this.lockName = lockName;
-        this.stringRedisTemplate = stringRedisTemplate;
-    &#125;
-
-
-    @Override
-    public boolean tryLock(long timeoutSec) &#123;
-         /*
-          获取锁时存入线程标识
-          解决分布式锁 **误删** 问题
-         */
-        
-        // 获取线程标示
-        String threadId = ID_PREFIX + Thread.currentThread().getId();
-        // 获取锁
-        Boolean isSuccess = stringRedisTemplate.opsForValue()
-                .setIfAbsent(LOCK_PREFIX + lockName, threadId, timeoutSec, TimeUnit.MINUTES);
-//        return isSuccess;  // 可能会在自动拆箱过程中出现空指针
-        return Boolean.TRUE.equals(isSuccess);
-    &#125;
-
-    @Override
-    public void unlock() &#123;
-        /*
-         释放锁时先获取锁中的线程标识，判断是否与当前标识相同
-         如果一致则释放锁，不一致则不释放锁；
-         */
-
-        String threadId = ID_PREFIX + Thread.currentThread().getId();
-        String id = stringRedisTemplate.opsForValue().get(LOCK_PREFIX + lockName);
-        if (threadId.equals(id)) &#123;
-            stringRedisTemplate.delete(LOCK_PREFIX + lockName);
-        &#125;
-    &#125;
-&#125;
-</code></pre>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title class_">ILock</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 尝试获取锁</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> timeoutSec 锁持有的超时时间，过期后自动释放</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> true代表获取锁成功; false代表获取锁失败</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="type">boolean</span> <span class="title function_">tryLock</span><span class="params">(<span class="type">long</span> timeoutSec)</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 释放锁</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">void</span> <span class="title function_">unlock</span><span class="params">()</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">SimpleRedisLock</span> <span class="keyword">implements</span> <span class="title class_">ILock</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> StringRedisTemplate stringRedisTemplate;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> String lockName;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="type">String</span> <span class="variable">ID_PREFIX</span> <span class="operator">=</span> UUID.randomUUID(<span class="literal">true</span>) + <span class="string">&quot;-&quot;</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="type">String</span> <span class="variable">LOCK_PREFIX</span> <span class="operator">=</span> <span class="string">&quot;lock_&quot;</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">SimpleRedisLock</span><span class="params">(StringRedisTemplate stringRedisTemplate, String lockName)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.lockName = lockName;</span><br><span class="line">        <span class="built_in">this</span>.stringRedisTemplate = stringRedisTemplate;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="type">boolean</span> <span class="title function_">tryLock</span><span class="params">(<span class="type">long</span> timeoutSec)</span> &#123;</span><br><span class="line">         <span class="comment">/*</span></span><br><span class="line"><span class="comment">          获取锁时存入线程标识</span></span><br><span class="line"><span class="comment">          解决分布式锁 **误删** 问题</span></span><br><span class="line"><span class="comment">         */</span></span><br><span class="line">        </span><br><span class="line">        <span class="comment">// 获取线程标示</span></span><br><span class="line">        <span class="type">String</span> <span class="variable">threadId</span> <span class="operator">=</span> ID_PREFIX + Thread.currentThread().getId();</span><br><span class="line">        <span class="comment">// 获取锁</span></span><br><span class="line">        <span class="type">Boolean</span> <span class="variable">isSuccess</span> <span class="operator">=</span> stringRedisTemplate.opsForValue()</span><br><span class="line">                .setIfAbsent(LOCK_PREFIX + lockName, threadId, timeoutSec, TimeUnit.MINUTES);</span><br><span class="line"><span class="comment">//        return isSuccess;  // 可能会在自动拆箱过程中出现空指针</span></span><br><span class="line">        <span class="keyword">return</span> Boolean.TRUE.equals(isSuccess);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">unlock</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="comment">/*</span></span><br><span class="line"><span class="comment">         释放锁时先获取锁中的线程标识，判断是否与当前标识相同</span></span><br><span class="line"><span class="comment">         如果一致则释放锁，不一致则不释放锁；</span></span><br><span class="line"><span class="comment">         */</span></span><br><span class="line"></span><br><span class="line">        <span class="type">String</span> <span class="variable">threadId</span> <span class="operator">=</span> ID_PREFIX + Thread.currentThread().getId();</span><br><span class="line">        <span class="type">String</span> <span class="variable">id</span> <span class="operator">=</span> stringRedisTemplate.opsForValue().get(LOCK_PREFIX + lockName);</span><br><span class="line">        <span class="keyword">if</span> (threadId.equals(id)) &#123;</span><br><span class="line">            stringRedisTemplate.delete(LOCK_PREFIX + lockName);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 <li>
 <p>解决分布式锁 <strong>误删</strong> 问题</p>
@@ -808,8 +658,7 @@ DEL lock
 </li>
 <li>
 <p>Redis提供了lua脚本功能，在一个脚本中编写多条redis命令，确保多条命令执行时的原子性；</p>
-<pre><code class="language-lua">EVAL script key [key ...]  # 执行脚本
-</code></pre>
+<figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">EVAL script key [key ...]  # 执行脚本</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 </li>
@@ -837,52 +686,15 @@ DEL lock
 <ul>
 <li>
 <p>引入依赖</p>
-<pre><code class="language-xml">        &lt;dependency&gt;
-            &lt;groupId&gt;org.redisson&lt;/groupId&gt;
-            &lt;artifactId&gt;redisson&lt;/artifactId&gt;
-            &lt;version&gt;3.13.6&lt;/version&gt;
-        &lt;/dependency&gt;
-</code></pre>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.redisson<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>redisson<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>3.13.6<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
 </li>
 <li>
 <p>配置文件</p>
-<pre><code class="language-java">// Reddision 配置
-@Configuration
-public class RedissonConfig &#123;
-
-    @Bean
-    public RedissonClient redissonClient() &#123;
-        // 配置
-        Config config = new Config();
-        // 单节点
-        config.useSingleServer().setAddress(&quot;redis://127.0.0.1:6379&quot;).setPassword(&quot;lm12138&quot;);
-        // 创建RedissonClient对象
-        return Redisson.create(config);
-    &#125;
-&#125;
-</code></pre>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Reddision 配置</span></span><br><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">RedissonConfig</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Bean</span></span><br><span class="line">    <span class="keyword">public</span> RedissonClient <span class="title function_">redissonClient</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="comment">// 配置</span></span><br><span class="line">        <span class="type">Config</span> <span class="variable">config</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Config</span>();</span><br><span class="line">        <span class="comment">// 单节点</span></span><br><span class="line">        config.useSingleServer().setAddress(<span class="string">&quot;redis://127.0.0.1:6379&quot;</span>).setPassword(<span class="string">&quot;lm12138&quot;</span>);</span><br><span class="line">        <span class="comment">// 创建RedissonClient对象</span></span><br><span class="line">        <span class="keyword">return</span> Redisson.create(config);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 <li>
 <p>使用 <code>Redisson</code></p>
-<pre><code class="language-java">@Resource
-private RedissonClient redissonClient;
-
-@Test
-private void testRedisson() &#123;
-    // 获取锁，指定锁名称
-    RLock lock = redissonClient.getLock(&quot;anyLock&quot;);
-    boolean isLock = lock.tryLock();
-    // 判断是否获取锁成功
-    if(!isLock)&#123;
-        try &#123;
-           // 业务逻辑
-        &#125; finally &#123;
-          // 释放锁
-          lock.unlock();
-        &#125;
-    &#125;
-&#125;
-</code></pre>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Resource</span></span><br><span class="line"><span class="keyword">private</span> RedissonClient redissonClient;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title function_">testRedisson</span><span class="params">()</span> &#123;</span><br><span class="line">    <span class="comment">// 获取锁，指定锁名称</span></span><br><span class="line">    <span class="type">RLock</span> <span class="variable">lock</span> <span class="operator">=</span> redissonClient.getLock(<span class="string">&quot;anyLock&quot;</span>);</span><br><span class="line">    <span class="type">boolean</span> <span class="variable">isLock</span> <span class="operator">=</span> lock.tryLock();</span><br><span class="line">    <span class="comment">// 判断是否获取锁成功</span></span><br><span class="line">    <span class="keyword">if</span>(!isLock)&#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">           <span class="comment">// 业务逻辑</span></span><br><span class="line">        &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">          <span class="comment">// 释放锁</span></span><br><span class="line">          lock.unlock();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 </li>
