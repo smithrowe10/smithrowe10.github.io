@@ -1,0 +1,2176 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>Leetcode刷题总结 | ming's blog</title><meta name="author" content="ming"><meta name="copyright" content="ming"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="栈和队列   最小栈：请设计一个栈，除了常规栈支持的pop与push函数以外，还支持min函数，该函数返回栈元素中的最小值。执行push、pop和min操作的时间复杂度必须为O(1)。 public class MyStack &amp;#123;     private Stack&lt;Integer&gt; stackData; &#x2F;&#x2F; 栈数据     private Stack&lt;Integer">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Leetcode刷题总结">
+<meta property="og:url" content="http://example.com/2023/07/18/Leetcode%E5%88%B7%E9%A2%98%E6%80%BB%E7%BB%93/index.html">
+<meta property="og:site_name" content="ming&#39;s blog">
+<meta property="og:description" content="栈和队列   最小栈：请设计一个栈，除了常规栈支持的pop与push函数以外，还支持min函数，该函数返回栈元素中的最小值。执行push、pop和min操作的时间复杂度必须为O(1)。 public class MyStack &amp;#123;     private Stack&lt;Integer&gt; stackData; &#x2F;&#x2F; 栈数据     private Stack&lt;Integer">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/img/smile_boy.jpg">
+<meta property="article:published_time" content="2023-07-18T09:07:42.000Z">
+<meta property="article:modified_time" content="2023-08-28T11:27:29.951Z">
+<meta property="article:author" content="ming">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/img/smile_boy.jpg"><link rel="shortcut icon" href="/img/dog.png"><link rel="canonical" href="http://example.com/2023/07/18/Leetcode%E5%88%B7%E9%A2%98%E6%80%BB%E7%BB%93/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: undefined,
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: 'Just',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Leetcode刷题总结',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2023-08-28 19:27:29'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/smile_boy.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">15</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">13</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">3</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="ming's blog"><span class="site-name">ming's blog</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">Leetcode刷题总结</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2023-07-18T09:07:42.000Z" title="Created 2023-07-18 17:07:42">2023-07-18</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2023-08-28T11:27:29.951Z" title="Updated 2023-08-28 19:27:29">2023-08-28</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">学习笔记</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="Leetcode刷题总结"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h2 id="栈和队列">栈和队列</h2>
+<ul>
+<li>
+<p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/min-stack-lcci">最小栈</a>：请设计一个栈，除了常规栈支持的pop与push函数以外，还支持min函数，该函数返回栈元素中的最小值。执行push、pop和min操作的时间复杂度必须为O(1)。</p>
+<pre><code class="language-java">public class MyStack &#123;
+    private Stack&lt;Integer&gt; stackData; // 栈数据
+    private Stack&lt;Integer&gt; stackMin; // 栈的最小值
+
+    public MyStack1() &#123;
+        this.stackData = new Stack&lt;&gt;();
+        this.stackMin = new Stack&lt;&gt;();
+    &#125;
+
+    public int pop() &#123;
+        if (this.stackData.isEmpty()) throw new RuntimeException();
+        int val = this.stackData.pop();
+        if (val == this.getMin()) &#123;
+            this.stackMin.pop();
+        &#125;
+        return val;
+    &#125;
+
+    public void push(int x) &#123;
+        this.stackData.push(x);
+        if (!this.stackMin.isEmpty()) &#123;
+            if (this.stackMin.peek() &gt;= x) &#123;
+                this.stackMin.push(x);
+            &#125;
+        &#125; else &#123;
+            this.stackMin.push(x);
+        &#125;
+    &#125;
+
+    public int getMin() &#123;
+        if (this.stackMin.isEmpty()) throw new RuntimeException();
+        return this.stackMin.peek();
+    &#125;
+&#125;
+</code></pre>
+</li>
+<li>
+<p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/yong-liang-ge-zhan-shi-xian-dui-lie-lcof/">用两个栈实现队列</a></p>
+<pre><code class="language-java">public class MyQueue &#123;
+    private Stack&lt;Integer&gt; stackPush;
+    private Stack&lt;Integer&gt; stackPop;
+
+    MyQueue1() &#123;
+        this.stackPush = new Stack&lt;&gt;();
+        this.stackPop = new Stack&lt;&gt;();
+    &#125;
+
+    public void add(int x) &#123;
+        this.stackPush.push(x);
+        if (this.stackPop.isEmpty()) &#123;
+            pushToPop();
+        &#125;
+    &#125;
+
+    // push栈元素压到pop栈，pop栈顶永远是优先级最高的
+    public void pushToPop() &#123;
+        if (this.stackPop.isEmpty()) &#123;
+            while (!this.stackPush.isEmpty()) &#123;
+                this.stackPop.push(this.stackPush.pop());
+            &#125;
+        &#125;
+    &#125;
+
+    public int poll() &#123;
+        if (this.stackPush.isEmpty() &amp;&amp; this.stackPop.isEmpty()) return -1;
+        pushToPop();
+        return this.stackPop.pop();
+    &#125;
+
+    public int peek() &#123;
+        return this.stackPop.peek();
+    &#125;
+&#125;
+</code></pre>
+</li>
+<li>
+<p><strong>汉诺塔问题</strong>：求有N层塔时，打印最优移动过程和最优移动总步数；注：移动时不能跳步，即必须经过中间。</p>
+<pre><code class="language-java">// 1. 小压大原则
+// 2. 不可逆原则：若要求最小步数，则相邻操作之间不可逆
+//     如果上一步是 L-&gt;M，则下一步绝对不是 M-&gt;L
+public class HanoiProblem &#123;
+    public enum State &#123;
+        No, LToM, MToR, RToM, MToL
+    &#125;
+    
+    public static int minStep(int n) &#123;
+        Stack&lt;Integer&gt; left = new Stack&lt;&gt;();
+        Stack&lt;Integer&gt; mid = new Stack&lt;&gt;();
+        Stack&lt;Integer&gt; right = new Stack&lt;&gt;();
+        left.push(Integer.MAX_VALUE);
+        mid.push(Integer.MAX_VALUE);
+        right.push(Integer.MAX_VALUE);
+        for (int i = n; i &gt; 0; i--) &#123;
+            left.push(i);
+        &#125;
+        State[] record = &#123;State.No&#125;;
+        int step = 0;
+        while (right.size() != n + 1) &#123;
+            step += process(record, State.MToL, State.LToM, left, mid, &quot;left&quot;, &quot;mid&quot;);
+            step += process(record, State.RToM, State.MToR, mid, right, &quot;mid&quot;, &quot;right&quot;);
+            step += process(record, State.MToR, State.RToM, right, mid, &quot;right&quot;, &quot;mid&quot;);
+            step += process(record, State.LToM, State.MToL, mid, left, &quot;mid&quot;, &quot;left&quot;);
+        &#125;
+
+        return step;
+    &#125;
+
+    public static int process(State[] record, State preNoAct, State nowAct, Stack&lt;Integer&gt; s1, 														Stack&lt;Integer&gt; s2, String from, String to) &#123;
+        if (record[0] != preNoAct &amp;&amp; s1.peek() &lt; s2.peek()) &#123;
+            int val = s1.pop();
+            s2.push(val);
+            System.out.println(&quot;move &quot; + val + &quot; from &quot; + from + &quot; to &quot; + to);
+            record[0] = nowAct;
+            return 1;
+        &#125;
+        return 0;
+    &#125;
+
+    public static void main(String[] args) &#123;
+        System.out.println(minStep(2));
+    &#125;
+&#125;
+</code></pre>
+</li>
+<li>
+<p><strong>用一个栈实现另一个栈的排序</strong>：将一个整数类型的栈从顶到底按从大到小的顺序排序，只能申请一个栈。</p>
+<pre><code class="language-java">public class SortStack &#123;
+    public static void sort(Stack&lt;Integer&gt; stack) &#123;
+        Stack&lt;Integer&gt; help = new Stack&lt;&gt;(); // 辅助栈
+        while (!stack.isEmpty()) &#123;
+            int cur = stack.pop();
+            while (!help.isEmpty() &amp;&amp; help.peek() &lt; cur) &#123;
+                stack.push(help.pop());
+            &#125;
+            help.push(cur);
+        &#125;
+
+        while (!help.isEmpty()) &#123;
+            stack.push(help.pop());
+        &#125;
+    &#125;
+&#125;
+</code></pre>
+</li>
+<li>
+<p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/hua-dong-chuang-kou-de-zui-da-zhi-lcof/">滑动窗口的最大值</a></p>
+<p>示例：</p>
+<pre><code class="language-java">输入: arr = [1,3,-1,-3,5,3,6,7], 和 w = 3
+输出: [3,3,5,5,6,7] 
+解释: 
+  滑动窗口的位置                最大值
+---------------               -----
+[1  3  -1] -3  5  3  6  7       3
+ 1 [3  -1  -3] 5  3  6  7       3
+ 1  3 [-1  -3  5] 3  6  7       5
+ 1  3  -1 [-3  5  3] 6  7       5
+ 1  3  -1  -3 [5  3  6] 7       6
+ 1  3  -1  -3  5 [3  6  7]      7
+
+</code></pre>
+<pre><code class="language-java">public class MaxWindow &#123;
+    // 方法一，暴力枚举，但是会超时
+    // O(N x w)
+    public static int[] getMaxWindow1(int[] arr, int w) &#123;
+        int n = arr.length;
+        int[] res = new int[n - w + 1];
+        int left = 0;
+        int right = w;
+        while (right &lt; n + 1) &#123;
+            int maxVal = Integer.MIN_VALUE;
+            for (int i = left; i &lt; right; i++) &#123;
+                maxVal = Math.max(maxVal, arr[i]);
+            &#125;
+            res[left] = maxVal;
+            left++;
+            right++;
+        &#125;
+
+        return res;
+    &#125;
+
+    
+    // 方法二：双端队列实现，复杂度O(N)
+    public static int[] getMaxWindow2(int[] arr, int w) &#123;
+        int n = arr.length;
+        int[] res = new int[n - w + 1];
+        Deque&lt;Integer&gt; dq = new LinkedList&lt;&gt;(); // 双端队列
+        int index = 0;
+        for (int i = 0; i &lt; arr.length; i++) &#123;
+            while (!dq.isEmpty() &amp;&amp; arr[dq.peekLast()] &lt;= arr[i]) &#123;
+                dq.pollLast();
+            &#125;
+            dq.addLast(i);
+
+            // 队头下标已过期
+            if (dq.peekFirst() == i - w) &#123;
+                dq.pollFirst();
+            &#125;
+            if (i &gt;= w - 1) &#123;
+                res[index++] = arr[dq.peekFirst()];
+            &#125;
+        &#125;
+
+        return res;
+    &#125;
+&#125;
+</code></pre>
+</li>
+</ul>
+<h2 id="链表">链表</h2>
+<p>重要技巧：</p>
+<p>（1）特殊数据结构，如数组，哈希表等；</p>
+<p>（2）快慢指针；</p>
+<ul>
+<li>
+<p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/reverse-linked-list/">反转单向链表</a></p>
+<pre><code class="language-java">public class ReverseNode &#123;
+    public Node reverseNode(Node head) &#123;
+        Node pre = null;
+        Node next = null;
+
+        while (head != null) &#123;
+            next = head.next; // 记录后继节点
+            head.next = pre; // 当前节点指向前继节点
+            pre = head;  // 更新前继节点
+            head = next; // 更新当前节点为后继节点
+        &#125;
+        return pre;
+    &#125;
+&#125;
+</code></pre>
+</li>
+<li>
+<p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/remove-nth-node-from-end-of-list/">删除单链表中倒数第k个节点</a></p>
+<pre><code class="language-java">// 快慢指针实现
+public class RemoveLastNode &#123;
+    public static Node removeNode(Node head, int k) &#123;
+        if (head == null || k &lt; 1) return null;
+        Node slow = head;
+        Node fast = head;
+        while (k != 0) &#123;
+            fast = fast.next;
+            k--;
+        &#125;
+        // 删除头节点
+        if (fast == null) &#123;
+            head = head.next;
+            return head;
+        &#125;
+
+        fast = fast.next;
+        while (fast != null) &#123;
+            fast = fast.next;
+            slow = slow.next;
+        &#125;
+        slow.next = slow.next.next;
+
+        return head;
+    &#125;
+&#125;
+</code></pre>
+</li>
+<li>
+<p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/linked-list-cycle-lcci/">环路检测</a>：给定一个链表，如果它是有环链表，实现一个算法返回环路的开头节点。若环不存在，请返回 <code>null</code>。</p>
+<p>思路：</p>
+<p>（1）设置快慢指针<code>slow</code>和<code>fast</code>进行遍历，若fast遇到终点（null）则链表无环；</p>
+<p>（2）若链表有环，则快慢指针一定在某个环内位置相遇，此时<code>fast</code>指针回到<code>head</code>的位置，每次走一步，<code>slow</code>指针不变，继续遍历，则两指针一定在环的入口相遇；</p>
+<pre><code class="language-java">public class DetectCycle &#123;
+    public Node detectCycle(Node head) &#123;
+        if (head == null || head.next == null) &#123;
+            return null;
+        &#125;
+        Node slow = head;
+        Node fast = head;
+        while (fast != null &amp;&amp; fast.next != null) &#123;
+            slow = slow.next;
+            fast = fast.next.next;
+            // 快慢指针相遇
+            if (fast == slow) &#123;
+                fast = head;
+                while (fast != slow) &#123;
+                    slow = slow.next;
+                    fast = fast.next;
+                &#125;
+                return slow;
+            &#125;
+        &#125;
+        return null;
+    &#125;
+&#125;
+</code></pre>
+</li>
+<li>
+<p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/intersection-of-two-linked-lists/">判断两个链表是否相交</a>：给你两个单链表的头节点 <code>headA</code> 和 <code>headB</code> ，请你找出并返回两个单链表相交的起始节点。如果两个链表不存在相交节点，返回 <code>null</code> 。</p>
+<pre><code class="language-JAVA">public class IntersectionNode &#123;
+    public Node getIntersectionNode(Node headA, Node headB) &#123;
+        Node n1 = headA;
+        Node n2 = headB;
+        while (n1 != n2) &#123;
+            if (n1 == null) n1 = headA;
+            else n1 = n1.next;
+
+            if (n2 == null) n2 = headB;
+            else n2 = n2.next;
+        &#125;
+        return n1;
+    &#125;
+&#125;
+</code></pre>
+</li>
+</ul>
+<h2 id="字符串">字符串</h2>
+<ul>
+<li>
+<p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/reverse-string/"> 反转字符串</a></p>
+<pre><code class="language-java">class Solution &#123;
+    public void reverseString(char[] s) &#123;
+        int left = 0;
+        int right = s.length - 1;
+        while (left &lt; right) &#123;
+            char tmp = s[left];
+            s[left] = s[right];
+            s[right] = tmp;
+            left++;
+            right--;
+        &#125;
+    &#125;
+&#125;
+</code></pre>
+</li>
+<li>
+<p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/reverse-string-ii/">反转字符串 II</a>：给定一个字符串 <code>s</code> 和一个整数 <code>k</code>，从字符串开头算起，每计数至 <code>2k</code> 个字符，就反转这 <code>2k</code> 字符中的前 <code>k</code> 个字符。</p>
+<ul>
+<li>如果剩余字符少于 <code>k</code> 个，则将剩余字符全部反转。</li>
+<li>如果剩余字符小于 <code>2k</code> 但大于或等于 <code>k</code> 个，则反转前 <code>k</code> 个字符，其余字符保持原样。</li>
+</ul>
+<pre><code class="language-java">class Solution &#123;
+    public String reverseStr(String s, int k) &#123;
+        char[] str = s.toCharArray();
+
+        for (int i = 0; i &lt; str.length; i += 2 * k) &#123;
+
+            // 剩余字符小于 2k 但大于或等于 k 个，反转前 k 个字符
+            if (str.length &gt;= i + k) &#123;
+                reverse(str, i, i + k - 1);
+                continue;
+            &#125;
+
+            // 剩余字符少于 k 个，将剩余字符全部反转
+            reverse(str, i, str.length - 1);
+        &#125;
+
+        return String.copyValueOf(str);
+    &#125;
+
+    public void reverse(char[] s, int left, int right) &#123;
+        while (left &lt; right) &#123;
+            char tmp = s[left];
+            s[left] = s[right];
+            s[right] = tmp;
+            left++;
+            right--;
+        &#125;
+    &#125;
+&#125;
+</code></pre>
+</li>
+<li>
+<p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/ti-huan-kong-ge-lcof/">替换空格</a></p>
+<pre><code class="language-java">class Solution &#123;
+    public String replaceSpace(String s) &#123;
+        if(s==null)&#123;
+            return null;
+        &#125;
+        
+        StringBuilder sb = new  StringBuilder();
+        for(int i=0;i&lt;s.length();i++)&#123;
+            if(s.charAt(i)==' ')&#123;
+                sb.append(&quot;%20&quot;);
+            &#125;else&#123;
+                sb.append(s.charAt(i));
+            &#125;
+        &#125;
+        
+        return sb.toString();
+    &#125;
+&#125;
+</code></pre>
+</li>
+<li>
+<p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/reverse-words-in-a-string/">反转字符串中的单词</a></p>
+<pre><code class="language-java">public class ReverseWords &#123;
+    public static String reverseWords(String s) &#123;
+        String[] strs = s
+                .trim() // 去除头尾空白符
+                .split(&quot; &quot;); // 以空格来分隔字符串
+        StringBuilder reverseString = new StringBuilder();
+        for (int i = strs.length - 1; i &gt;= 0; i--) &#123;
+            if (strs[i] == &quot;&quot;) continue;
+            reverseString.append(strs[i]);
+            if (i != 0) &#123;
+                reverseString.append(&quot; &quot;);
+            &#125;
+        &#125;
+
+        return reverseString.toString();
+    &#125;
+&#125;
+</code></pre>
+</li>
+<li>
+<p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/zuo-xuan-zhuan-zi-fu-chuan-lcof/">剑指 Offer 58 - II. 左旋转字符串</a></p>
+<pre><code class="language-java">public class ReverseLeftWords &#123;
+    // 1.反转区间为前n的子串
+    // 2.反转区间为n到末尾的子串
+    // 3.反转整个字符串
+    public String reverseLeftWords(String s, int n) &#123;
+        char[] str = s.toCharArray();
+        reverse(str, 0, n - 1);
+        reverse(str, n, s.length() - 1);
+        reverse(str, 0, s.length() - 1);
+        return String.copyValueOf(str);
+    &#125;
+
+    // 反转字符串
+    public void reverse(char[] str, int start, int end) &#123;
+        while (start &lt; end) &#123;
+            char tmp = str[start];
+            str[start] = str[end];
+            str[end] = tmp;
+            start++;
+            end--;
+        &#125;
+    &#125;
+&#125;
+</code></pre>
+</li>
+<li>
+<p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/find-the-index-of-the-first-occurrence-in-a-string/">找出字符串中第一个匹配项的下标</a></p>
+<pre><code class="language-java">public class StrStr &#123;
+    public static int strStr(String haystack, String needle) &#123;
+        int i = 0, j = 0;
+        int temp = 0;
+        while (i &lt; haystack.length() &amp;&amp; j &lt; needle.length()) &#123;
+            temp = i;
+
+            // 逐个匹配
+            while (i &lt; haystack.length() &amp;&amp; j &lt; needle.length() 
+                                         &amp;&amp; haystack.charAt(i) == needle.charAt(j)) &#123;
+                i++;
+                j++;
+            &#125;
+            // 匹配成功
+            if (j == needle.length()) &#123;
+                return i - needle.length();
+            &#125;
+            // 从下个位置继续匹配
+            i = temp + 1;
+            j = 0;
+        &#125;
+        return -1;
+    &#125;
+&#125;
+</code></pre>
+</li>
+<li>
+<p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/repeated-substring-pattern/">重复的子字符串</a></p>
+<p>判断字符串s是否由重复子串组成，只要两个s拼接在一起，里面还出现一个s的话，就说明是由重复子串组成。我们在判断 s + s 拼接的字符串里是否出现一个s的的时候，<strong>要刨除 s + s 的首字符和尾字符</strong>，这样避免在s+s中搜索出原来的s，我们要搜索的是中间拼接出来的s。</p>
+<pre><code class="language-java">public class RepeatedSubstringPattern &#123;
+    public static boolean repeatedSubstringPattern(String s) &#123;
+        String ss = s + s;
+        String substring = ss.substring(1, ss.length() - 1);
+        return substring.contains(s);
+    &#125;
+
+    public static void main(String[] args) &#123;
+        System.out.println(repeatedSubstringPattern(&quot;abaaba&quot;));
+    &#125;
+&#125;
+</code></pre>
+</li>
+</ul>
+<h2 id="二叉树">二叉树</h2>
+<ul>
+<li>
+<p>二叉树前序遍历</p>
+<pre><code class="language-java">public class PreOrderTraverse &#123;
+
+    // 递归遍历
+    public static void preOrderRecur(TreeNode root) &#123;
+        if (root == null) return;
+        System.out.print(root.val + &quot; &quot;);
+        preOrderRecur(root.left);
+        preOrderRecur(root.right);
+    &#125;
+
+    // 非递归遍历
+    public static void preOrderUnRecur(TreeNode root) &#123;
+        if (root == null) return;
+        Stack&lt;TreeNode&gt; s = new Stack&lt;&gt;();
+        s.push(root);
+        while (!s.isEmpty()) &#123;
+            TreeNode cur = s.pop();
+            System.out.print(cur.val + &quot; &quot;);
+            if (cur.right != null) &#123;
+                s.push(cur.right);
+            &#125;
+
+            if (cur.left != null) &#123;
+                s.push(cur.left);
+            &#125;
+        &#125;
+    &#125;
+&#125;
+</code></pre>
+</li>
+<li>
+<p>二叉树中序遍历</p>
+<pre><code class="language-java">public class InOrderTraverse &#123;
+    // 递归遍历
+    public static void inOrderRecur(TreeNode root) &#123;
+        if (root == null) return;
+        inOrderRecur(root.left);
+        System.out.print(root.val + &quot; &quot;);
+        inOrderRecur(root.right);
+    &#125;
+    
+    // 非递归遍历
+    public static void inOrderUnRecur(TreeNode root) &#123;
+        if (root == null) return;
+        Stack&lt;TreeNode&gt; s = new Stack&lt;&gt;();
+        TreeNode cur = root;
+        while (!s.isEmpty() || cur != null) &#123;
+            // 先依次将左边界入栈
+            if (cur != null) &#123;
+                s.push(cur);
+                cur = cur.left;
+            &#125; else &#123;
+                cur = s.pop();
+                System.out.print(cur.val + &quot; &quot;);
+                cur = cur.right;
+            &#125;
+        &#125;
+    &#125;
+&#125;
+</code></pre>
+</li>
+<li>
+<p>二叉树后序遍历</p>
+<p>后续遍历关键在于，当节点的 <strong>右子树存在且被访问后</strong> 或者是 <strong>右子树为空</strong> 才能访问自身。</p>
+<p>在遍历过程中，先将节点从的左孩子到最左节点压栈， 设置标志变量 flag 来判断是否访问过左孩子， pre指针来指向先前访问过的节点。所有左孩子压栈后， 最后一个节点的左孩子为空（已被访问） ， 令flag=1；</p>
+<p>当左孩子被访问时，进入循环，取栈顶节点：</p>
+<ol>
+<li>
+<p>当栈顶节点的右孩子 等于 <strong>空</strong> 或 <strong>前一个被访问的节点</strong> 时， 访问该节点， 令pre 等于当前节点， 当前节点出栈。</p>
+</li>
+<li>
+<p>当栈顶节点的右孩子**不为空 **时， 继续遍历以右孩子为根节点的右子树。</p>
+</li>
+</ol>
+<pre><code class="language-java">public class PostOrderTraverse &#123;
+    // 递归遍历
+    public static void postOrderRecur(TreeNode root) &#123;
+        if (root == null) return;
+        postOrderRecur(root.left);
+        postOrderRecur(root.right);
+        System.out.print(root.val + &quot; &quot;);
+    &#125;
+
+    // 非递归遍历
+    public static void postOrderUnRecur(TreeNode root) &#123;
+        if (root == null) return;
+        Stack&lt;TreeNode&gt; s = new Stack&lt;&gt;();
+        TreeNode cur = root;
+
+        int flag = 0;
+        TreeNode pre = null; // 前一个被访问的节点
+        do &#123;
+            // 所有左节点入栈
+            while (cur != null) &#123;
+                s.push(cur);
+                cur = cur.left;
+            &#125;
+            flag = 1;
+            while (!s.isEmpty() &amp;&amp; flag == 1) &#123;
+                cur = s.peek();
+                // 若当前节点的右节点是【上一个被访问的节点】 或为【空】，则访问该节点
+                if (cur.right == null || cur.right == pre) &#123;
+                    s.pop();
+                    System.out.print(cur.val + &quot; &quot;);
+                    pre = cur;
+                &#125; else &#123;
+                    //继续遍历右子树
+                    cur = cur.right;
+                    flag = 0;
+                &#125;
+            &#125;
+        &#125; while (!s.isEmpty());
+    &#125;
+&#125;
+</code></pre>
+<p><strong>另一种思路</strong>：由于前序遍历的顺序是 ”中左右“，后序遍历的顺序是”左右中“，因此更改前序遍历中的入栈顺序，然后将遍历结果反转，便能得到后序遍历的结果。</p>
+<pre><code class="language-java">// 后序遍历顺序 左-右-中 入栈顺序：中-左-右 出栈顺序：中-右-左， 最后翻转结果
+class Solution &#123;
+    public List&lt;Integer&gt; postorderTraversal(TreeNode root) &#123;
+        List&lt;Integer&gt; result = new ArrayList&lt;&gt;();
+        if (root == null)&#123;
+            return result;
+        &#125;
+        Stack&lt;TreeNode&gt; stack = new Stack&lt;&gt;();
+        stack.push(root);
+        while (!stack.isEmpty())&#123;
+            TreeNode node = stack.pop();
+            result.add(node.val);
+            if (node.left != null)&#123;
+                stack.push(node.left);
+            &#125;
+            if (node.right != null)&#123;
+                stack.push(node.right);
+            &#125;
+        &#125;
+        Collections.reverse(result);
+        return result;
+    &#125;
+&#125;
+</code></pre>
+</li>
+<li>
+<p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/maximum-depth-of-binary-tree/"> 二叉树的最大深度</a></p>
+<pre><code class="language-java">class Solution &#123;
+    public int maxDepth(TreeNode root) &#123;
+        if (root == null) return 0;
+        if (root.left == null &amp;&amp; root.right == null) return 1;
+        return Math.max(maxDepth(root.left) + 1, maxDepth(root.right) + 1);
+    &#125;
+&#125;
+</code></pre>
+</li>
+<li>
+<p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/minimum-depth-of-binary-tree/">二叉树的最小深度</a>：最小深度是从根节点到最近叶子节点的最短路径上的节点数量。</p>
+<pre><code class="language-java">// 如果左子树为空，右子树不为空，最小深度是 1 + 右子树的最小深度。
+// 反之，右子树为空，左子树不为空，最小深度是 1 + 左子树的最小深度。 
+// 如果左右子树都不为空，返回 1 + 左右子树深度最小值。
+class Solution &#123;
+    public int minDepth(TreeNode root) &#123;
+        if (root == null) return 0;
+
+        if (root.left != null &amp;&amp; root.right == null) return minDepth(root.left) + 1;
+        if (root.left == null &amp;&amp; root.right != null) return minDepth(root.right) + 1;
+
+        return Math.min(minDepth(root.left) + 1, minDepth(root.right) + 1);
+    &#125;
+&#125;
+</code></pre>
+</li>
+<li>
+<p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/invert-binary-tree/">翻转二叉树</a></p>
+<pre><code class="language-java">class Solution &#123;
+    public TreeNode invertTree(TreeNode root) &#123;
+        if(root==null) return null;
+        // 交换左右子树
+        TreeNode tmp = root.left;
+        root.left = root.right;
+        root.right = tmp;
+
+        invertTree(root.left);
+        invertTree(root.right);
+        return root;
+    &#125;
+&#125;
+</code></pre>
+</li>
+<li>
+<p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/symmetric-tree/">对称二叉树</a>：判断二叉树是否为轴对称</p>
+<pre><code class="language-java">class Solution &#123;
+    public boolean isSymmetric(TreeNode root) &#123;
+        if(root==null) return true;
+        return isSame(root.left,root.right);
+    &#125;
+
+    public boolean isSame(TreeNode t1,TreeNode t2)&#123;
+        if(t1==null &amp;&amp; t2==null) return true;
+        if(t1==null || t2==null) return false;
+        if(t1.val != t2.val) return false;
+
+        return isSame(t1.left,t2.right) &amp;&amp; isSame(t1.right,t2.left);
+    &#125;
+&#125;
+</code></pre>
+</li>
+<li>
+<p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/balanced-binary-tree/">平衡二叉树</a>：平衡二叉树的<em>每个节点</em> 的左右两个子树的高度差的绝对值不超过 1</p>
+<pre><code class="language-java">class BalanceTree &#123;
+    public boolean isBalanced(TreeNode root) &#123;
+        if (root == null) return true;
+        int h1 = getHeight(root.left);
+        int h2 = getHeight(root.right);
+        if (Math.abs(h1 - h2) &gt; 1) return false;
+        else return isBalanced(root.left) &amp;&amp; isBalanced(root.right);
+    &#125;
+
+    // 求某个节点的最大高度
+    public int getHeight(TreeNode root) &#123;
+        if (root == null) return 0;
+        if (root.left == null &amp;&amp; root.right == null) return 1;
+        else return Math.max(getHeight(root.left) + 1, getHeight(root.right) + 1);
+    &#125;
+&#125;
+</code></pre>
+</li>
+<li>
+<p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/binary-tree-paths/">二叉树的所有路径</a>：给你一个二叉树的根节点 <code>root</code> ，按 <strong>任意顺序</strong> ，返回所有从根节点到叶子节点的路径。</p>
+<pre><code class="language-java">public class BinaryTreePaths &#123;
+    public List&lt;String&gt; binaryTreePaths(TreeNode root) &#123;
+        List&lt;String&gt; paths = new LinkedList&lt;&gt;();
+        dfs(root, paths, &quot;&quot;);
+        return paths;
+    &#125;
+
+    public void dfs(TreeNode root, List&lt;String&gt; paths, String path) &#123;
+        if (root == null) return;
+        path += root.val;
+        if (root.left == null &amp;&amp; root.right == null) &#123;
+            paths.add(path);
+            return;
+        &#125;
+        dfs(root.left, paths, path + &quot;-&gt;&quot;);
+        dfs(root.right, paths, path + &quot;-&gt;&quot;);
+    &#125;
+&#125;
+</code></pre>
+</li>
+<li>
+<p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/sum-of-left-leaves/">左叶子之和</a>：给定二叉树的根节点 <code>root</code> ，返回所有左叶子之和。</p>
+<pre><code class="language-java">public class LeftLeaves &#123;
+    // 递归法
+    public int sumOfLeftLeaves1(TreeNode root) &#123;
+        int res = 0;
+        if (root == null) return 0;
+        if (root.left == null &amp;&amp; root.right == null) return 0;
+        if (root.left != null &amp;&amp; root.left.left == null &amp;&amp; root.left.right == null) &#123;
+            res += root.left.val;
+        &#125;
+
+        return res + sumOfLeftLeaves1(root.left) + sumOfLeftLeaves1(root.right);
+    &#125;
+
+    // 迭代法
+    public int sumOfLeftLeaves2(TreeNode root) &#123;
+        if (root == null) return 0;
+        int res = 0;
+        Stack&lt;TreeNode&gt; s = new Stack&lt;&gt;();
+        s.push(root);
+        while (!s.isEmpty()) &#123;
+            TreeNode node = s.pop();
+            if (node.left != null &amp;&amp; node.left.left == null &amp;&amp; node.left.right == null) &#123;
+                res += node.left.val;
+            &#125;
+            if (node.left != null) s.push(node.left);
+            if (node.right != null) s.push(node.right);
+        &#125;
+        return res;
+    &#125;
+&#125;
+</code></pre>
+</li>
+<li>
+<p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/find-bottom-left-tree-value/">找树左下角的值</a>：给定一个二叉树的 <strong>根节点</strong> <code>root</code>，请找出该二叉树的 <strong>最底层最左边</strong> 节点的值。</p>
+<pre><code class="language-java">// 利用层序遍历，最后一层的第一个值即为左下角的值
+class Solution &#123;
+    public int findBottomLeftValue(TreeNode root) &#123;
+        if (root == null) return -1;
+        Queue&lt;TreeNode&gt; q = new LinkedList&lt;&gt;();
+        int res = 0;
+        q.add(root);
+        while (!q.isEmpty()) &#123;
+            int size = q.size();
+            for (int i = 0; i &lt; size; i++) &#123;
+                TreeNode node = q.poll();
+                if (i == 0) res = node.val; // 记录最后一层第一个值
+                if (node.left != null) q.add(node.left);
+                if (node.right != null) q.add(node.right);
+            &#125;
+        &#125;
+        return res;
+    &#125;
+&#125;
+</code></pre>
+</li>
+<li>
+<p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/path-sum/">路径总和</a>：给你二叉树的根节点 <code>root</code> 和一个表示目标和的整数 <code>targetSum</code> 。判断该树中是否存在 <strong>根节点到叶子节点</strong> 的路径，这条路径上所有节点值相加等于目标和 <code>targetSum</code> 。如果存在，返回 <code>true</code> ；否则，返回 <code>false</code> 。</p>
+<pre><code class="language-java">public class PathSum &#123;
+    public boolean hasPathSum(TreeNode root, int targetSum) &#123;
+        if (root == null) return false;
+        targetSum -= root.val;
+        // 找到一条路径
+        if (root.left == null &amp;&amp; root.right == null) &#123;
+            return targetSum == 0;
+        &#125;
+
+        if (root.left != null) &#123;
+            boolean left = hasPathSum(root.left, targetSum);
+            if (left) return true;
+        &#125;
+        if (root.right != null) &#123;
+            boolean right = hasPathSum(root.right, targetSum);
+            if (right) return true;
+        &#125;
+
+        return false;
+    &#125;
+&#125;
+</code></pre>
+</li>
+<li>
+<p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/construct-binary-tree-from-inorder-and-postorder-traversal/">从中序与后序遍历序列构造二叉树</a></p>
+<pre><code class="language-java">public class BuildTree1 &#123;
+    HashMap&lt;Integer, Integer&gt; map;
+
+    public TreeNode buildTree(int[] inorder, int[] postorder) &#123;
+        int n = inorder.length;
+        if (n == 0) return null;
+        map = new HashMap&lt;&gt;();
+        for (int i = 0; i &lt; n; i++) &#123;
+            map.put(inorder[i], i); // 保存中序序列值得对应位置，方便查询
+        &#125;
+
+        return helper(inorder, 0, n, postorder, 0, n); // 左闭右开
+    &#125;
+
+    public TreeNode helper(int[] inorder, int inBegin, int inEnd,
+                           int[] postorder, int postBegin, int postEnd) &#123;
+        // 不满足左闭右开，说明没有元素，返回空树
+        if (inBegin &gt;= inEnd || postBegin &gt;= postEnd) return null;
+
+        // 找到后序遍历的最后一个元素在中序遍历中的位置
+        // 构造根节点
+        int rootIndex = map.get(postorder[postEnd - 1]);
+        TreeNode root = new TreeNode(inorder[rootIndex]);
+
+        int lenOfLeft = rootIndex - inBegin;  // 保存中序左子树个数，用来确定后序数列的个数
+        root.left = helper(inorder, inBegin, rootIndex, 
+                           postorder, postBegin, postBegin + lenOfLeft);
+        root.right = helper(inorder, rootIndex + 1, inEnd, 
+                           postorder, postBegin + lenOfLeft, postEnd - 1);
+
+        return root;
+    &#125;
+&#125;
+</code></pre>
+</li>
+<li>
+<p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/zhong-jian-er-cha-shu-lcof/">从前序和中序遍历序列构造二叉树</a></p>
+<pre><code class="language-java">public class BuildTree2 &#123;
+    HashMap&lt;Integer, Integer&gt; map;
+
+    public TreeNode buildTree(int[] preorder, int[] inorder) &#123;
+        int n = inorder.length;
+        if (n == 0) return null;
+        map = new HashMap&lt;&gt;();
+        for (int i = 0; i &lt; n; i++) &#123;
+            map.put(inorder[i], i); // 保存中序序列值得对应位置，方便查询
+        &#125;
+
+        return helper(preorder, 0, n, inorder, 0, n); // 左闭右开
+    &#125;
+
+    public TreeNode helper(int[] preorder, int preBegin, int preEnd,
+                           int[] inorder, int inBegin, int inEnd) &#123;
+        // 不满足左闭右开，说明没有元素，返回空树
+        if (inBegin &gt;= inEnd || preBegin &gt;= preEnd) return null;
+
+        // 找到前序遍历的第一个元素在中序遍历中的位置
+        // 构造根节点
+        int rootIndex = map.get(preorder[preBegin]);
+        TreeNode root = new TreeNode(inorder[rootIndex]);
+
+        int lenOfLeft = rootIndex - inBegin;  // 保存中序左子树个数，用来确定后序数列的个数
+        root.left = helper(preorder, preBegin + 1, preBegin + lenOfLeft + 1,
+                           inorder, inBegin, rootIndex);
+        root.right = helper(preorder, preBegin + lenOfLeft + 1, preEnd,
+                           inorder, rootIndex + 1, inEnd);
+
+        return root;
+    &#125;
+&#125;
+</code></pre>
+</li>
+<li>
+<p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/validate-binary-search-tree/"> 验证二叉搜索树</a>：给你一个二叉树的根节点 <code>root</code> ，判断其是否是一个有效的二叉搜索树。</p>
+<pre><code class="language-java">/**
+ * 对于一个合法的二叉搜索树，节点的左子树只包含 小于 当前节点的数，节点的右子树只包含 大于 当前节点的数。
+ * 因此，它的中序遍历是升序的
+ */
+class Solution &#123;
+    long pre = Long.MIN_VALUE;
+
+    public boolean isValidBST(TreeNode root) &#123;
+        if (root == null) return true;
+        // 访问左子树
+        if (!isValidBST(root.left)) &#123;
+            return false;
+        &#125;
+        
+        if (root.val &lt;= pre) return false;
+        pre = root.val;
+
+        // 访问右子树
+        return isValidBST(root.right);
+    &#125;
+&#125;
+</code></pre>
+</li>
+<li>
+<p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/lowest-common-ancestor-of-a-binary-tree/"> 二叉树的最近公共祖先</a></p>
+<pre><code class="language-java">class Solution &#123;
+    public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) &#123;
+        if (root == null || root == p || root == q) return root;
+
+        // 后序遍历,自底向上
+        TreeNode left = lowestCommonAncestor(root.left, p, q);
+        TreeNode right = lowestCommonAncestor(root.right, p, q);
+
+        if (left == null &amp;&amp; right == null) return null; // 未找到节点
+        if (left == null) return right; // 目标节点在右边找到
+        if (right == null) return left; // 目标节点在左边找到
+
+        // 如果left和right都不为空，则最近公共祖先就是root
+        return root;
+    &#125;
+&#125;
+</code></pre>
+</li>
+<li>
+<p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/lowest-common-ancestor-of-a-binary-search-tree/"> 二叉搜索树的最近公共祖先</a></p>
+<pre><code class="language-java">class Solution &#123;
+    public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) &#123;
+        if (root == null || root == p || root == q) return root;
+        /**
+         * 利用二叉搜索树的性质：
+         * 1. 若p和q节点的值都比当前节点的值小，则目标节点在左子树
+         * 2. 若p和q节点的值都比当前节点的值大，则目标节点在右子树
+         * 3. 若p和q节点的值在当前节点值得两边，则目标节点为当前节点
+         */
+        if (root.val &gt; p.val &amp;&amp; root.val &gt; q.val) &#123;
+            return lowestCommonAncestor(root.left, p, q);
+        &#125; else if (root.val &lt; p.val &amp;&amp; root.val &lt; q.val) &#123;
+            return lowestCommonAncestor(root.right, p, q);
+        &#125; else &#123;
+            return root;
+        &#125;
+    &#125;
+&#125;
+</code></pre>
+</li>
+</ul>
+<h2 id="回溯">回溯</h2>
+<ul>
+<li>
+<p>回溯算法模板</p>
+<pre><code class="language-java">void backtracking(参数) &#123;
+    if (终止条件) &#123;
+        存放结果;
+        return;
+    &#125;
+
+    /**
+    * --&gt;循环体，树的宽度--&gt;                    
+    */
+    for (选择：本层集合中元素（树中节点孩子的数量就是集合的大小）) &#123;
+        处理节点;
+        backtracking(路径，选择列表); // 递归，树的深度 
+        回溯，撤销处理结果
+    &#125;
+&#125;
+</code></pre>
+</li>
+<li>
+<p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/combinations/">组合</a>：给定两个整数 <code>n</code> 和 <code>k</code>，返回范围 <code>[1, n]</code> 中所有可能的 <code>k</code> 个数的组合。你可以按 <strong>任何顺序</strong> 返回答案。</p>
+<pre><code class="language-java">class Combine &#123;
+    List&lt;List&lt;Integer&gt;&gt; res;
+    LinkedList&lt;Integer&gt; path;
+
+    public List&lt;List&lt;Integer&gt;&gt; combine(int n, int k) &#123;
+        res = new LinkedList&lt;&gt;();
+        path = new LinkedList&lt;&gt;();
+        process(n, k, 1);
+        return res;
+    &#125;
+
+    public void process(int n, int k, int index) &#123;
+        // 终止条件
+        if (path.size() == k) &#123;
+            res.add(new LinkedList&lt;&gt;(path)); // 存放结果
+            return;
+        &#125;
+
+        for (int i = index; i &lt;= n-(k-path.size())+1; i++) &#123; // jian'zhi
+            // 处理节点
+            path.add(i);
+            process(n, k, i + 1); // 递归
+            path.removeLast(); // 回溯，撤销处理结果
+        &#125;
+    &#125;
+&#125;
+</code></pre>
+</li>
+<li>
+<p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/combination-sum-iii/">组合总和 III</a>：找出所有相加之和为 <code>n</code> 的 <code>k</code> 个数的组合，且满足下列条件：</p>
+<ul>
+<li>只使用数字1到9</li>
+<li>每个数字 <strong>最多使用一次</strong></li>
+</ul>
+<p>返回<em>所有可能的有效组合的列表</em> 。该列表不能包含相同的组合两次，组合可以以任何顺序返回。</p>
+<pre><code class="language-java">public class CombinationSum3 &#123;
+    List&lt;List&lt;Integer&gt;&gt; res;
+    LinkedList&lt;Integer&gt; path;
+
+    public List&lt;List&lt;Integer&gt;&gt; combinationSum3(int k, int n) &#123;
+        res = new LinkedList&lt;&gt;();
+        path = new LinkedList&lt;&gt;();
+        process(n, k, 1);
+        return res;
+    &#125;
+
+    public void process(int target, int k, int index) &#123;
+        // 剪枝
+        if (target &lt; 0) &#123;
+            return;
+        &#125;
+        // 终止条件
+        if (path.size() == k &amp;&amp; target == 0) &#123;
+            res.add(new LinkedList&lt;&gt;(path));
+            return;
+        &#125;
+        for (int i = index; i &lt;= 9; i++) &#123;
+            // 处理节点
+            path.add(i);
+            target -= i;
+
+            // 递归
+            process(target, k, i + 1);
+
+            // 回溯
+            path.removeLast();
+            target += i;
+        &#125;
+    &#125;
+&#125;
+</code></pre>
+</li>
+<li>
+<p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/combination-sum/">组合总和</a>：给你一个 <strong>无重复元素</strong> 的整数数组 <code>candidates</code> 和一个目标整数 <code>target</code> ，找出 <code>candidates</code> 中可以使数字和为目标数 <code>target</code> 的所有 不同组合 ，并以列表形式返回。你可以按 <strong>任意顺序</strong> 返回这些组合。<code>candidates</code> 中的 同一个 数字可以 <strong>无限制重复被选取</strong> 。如果至少一个数字的被选数量不同，则两种组合是不同的。</p>
+<pre><code class="language-java">public class CombinationSum &#123;
+    List&lt;List&lt;Integer&gt;&gt; res;
+    LinkedList&lt;Integer&gt; path;
+
+    public List&lt;List&lt;Integer&gt;&gt; combinationSum(int[] candidates, int target) &#123;
+        res = new LinkedList&lt;&gt;();
+        path = new LinkedList&lt;&gt;();
+        process(candidates, target, 0);
+        return res;
+    &#125;
+
+    public void process(int[] candidates, int target, int index) &#123;
+        // 剪枝
+        if (target &lt; 0) &#123;
+            return;
+        &#125;
+        if (target == 0) &#123;
+            res.add(new LinkedList&lt;&gt;(path));
+            return;
+        &#125;
+
+        for (int i = index; i &lt; candidates.length; i++) &#123;
+            // 处理节点
+            path.add(candidates[i]);
+            target -= candidates[i];
+
+            // 递归
+            process(candidates, target, i); // 关键：不用递归 i+1, 表示元素可以被重复取到
+
+            // 回溯
+            path.removeLast();
+            target += candidates[i];
+        &#125;
+    &#125;
+&#125;
+</code></pre>
+</li>
+<li>
+<p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/letter-combinations-of-a-phone-number/">电话号码的字母组合</a>：给定一个仅包含数字 <code>2-9</code> 的字符串，返回所有它能表示的字母组合。答案可以按 <strong>任意顺序</strong> 返回。给出数字到字母的映射如下（与电话按键相同）。注意 1 不对应任何字母。</p>
+<p><img src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2021/11/09/200px-telephone-keypad2svg.png" alt="img"></p>
+<pre><code class="language-java">public class LetterCombinations &#123;
+
+    char[][] map = &#123;&#123;&#125;, &#123;&#125;, &#123;'a', 'b', 'c'&#125;, &#123;'d', 'e', 'f'&#125;, &#123;'g', 'h', 'i'&#125;, &#123;'j', 'k', 'l'&#125;,
+                     &#123;'m', 'n', 'o'&#125;, &#123;'p', 'q', 'r', 's'&#125;, &#123;'t', 'u', 'v'&#125;, &#123;'w', 'x', 'y', 'z'&#125;&#125;;
+
+    List&lt;String&gt; res;
+
+    StringBuilder sb = new StringBuilder();
+
+    public List&lt;String&gt; letterCombinations(String digits) &#123;
+        res = new LinkedList&lt;&gt;();
+        if (digits.length() == 0) &#123;
+            return res;
+        &#125;
+        process(digits, 0);
+        return res;
+    &#125;
+
+    public void process(String digits, int index) &#123;
+        // 终止条件
+        if (index == digits.length()) &#123;
+            res.add(sb.toString());
+            return;
+        &#125;
+
+        int digit = digits.charAt(index) - '0';
+        char[] str = map[digit];
+        for (int i = 0; i &lt; str.length; i++) &#123;
+            sb.append(str[i]);
+            process(digits, index + 1); // 由于是不同数字之间组合，所以是 index与 index+1 ...之间组合
+            sb.deleteCharAt(sb.length() - 1); // 回溯，重新尝试
+        &#125;
+    &#125;
+&#125;
+</code></pre>
+</li>
+<li>
+<p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/combination-sum-ii/">组合总和 II</a>：给定一个候选人编号的集合 <code>candidates</code> 和一个目标数 <code>target</code> ，找出 <code>candidates</code> 中所有可以使数字和为 <code>target</code> 的组合。<code>candidates</code> 中的每个数字在每个组合中只能使用 <strong>一次</strong> 。注意：**解集不能包含重复的组合。 **</p>
+<p>由于<code>candidates</code>中存在重复元素，因此本题的关键在于如何去重。</p>
+<pre><code class="language-java">class Solution &#123;
+    List&lt;List&lt;Integer&gt;&gt; res;
+    LinkedList&lt;Integer&gt; path;
+
+    public List&lt;List&lt;Integer&gt;&gt; combinationSum2(int[] candidates, int target) &#123;
+        res = new LinkedList&lt;&gt;();
+        path = new LinkedList&lt;&gt;();
+        Arrays.sort(candidates); // 排序，使相同元素在一起
+        process(candidates, target, 0);
+        return res;
+    &#125;
+
+    public void process(int[] candidates, int target, int index) &#123;
+        // 剪枝
+        if (target &lt; 0) &#123;
+            return;
+        &#125;
+        if (target == 0) &#123;
+            LinkedList&lt;Integer&gt; tmp = new LinkedList&lt;&gt;(path);
+//            // 简单判断去重，但是会超时
+//            if (!res.contains(tmp)) &#123;
+//                res.add(tmp);
+//            &#125;
+            res.add(tmp);
+            return;
+        &#125;
+
+        for (int i = index; i &lt; candidates.length; i++) &#123;
+            // 去重
+            if (i &gt; index &amp;&amp; candidates[i] == candidates[i - 1]) &#123;
+                continue;
+            &#125;
+            // 处理节点
+            path.add(candidates[i]);
+            target -= candidates[i];
+
+            // 递归
+            process(candidates, target, i + 1);
+
+            // 回溯
+            path.removeLast();
+            target += candidates[i];
+        &#125;
+    &#125;
+&#125;
+</code></pre>
+</li>
+<li>
+<p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/palindrome-partitioning/">分割回文串</a>：给你一个字符串 <code>s</code>，请你将 <code>s</code> 分割成一些子串，使每个子串都是 <strong>回文串</strong> 。返回 <code>s</code> 所有可能的分割方案。</p>
+<pre><code class="language-java">public class PalindromePartition &#123;
+    List&lt;List&lt;String&gt;&gt; res = new LinkedList&lt;&gt;();
+    List&lt;String&gt; path = new LinkedList&lt;&gt;();
+
+    public List&lt;List&lt;String&gt;&gt; partition(String s) &#123;
+        if (s.length() == 0) &#123;
+            return null;
+        &#125;
+        process(s, 0);
+        return res;
+    &#125;
+
+    public void process(String s, int index) &#123;
+        if (index &gt;= s.length()) &#123;
+            res.add(new LinkedList&lt;&gt;(path));
+            return;
+        &#125;
+
+        for (int i = index; i &lt; s.length(); i++) &#123;
+            if (isPalindrome(s, index, i)) &#123;
+                String tmp = s.substring(index, i + 1);
+                path.add(tmp);
+            &#125; else &#123;
+                continue;
+            &#125;
+
+            process(s, i + 1); // 递归
+            path.remove(path.size() - 1); //回溯
+        &#125;
+    &#125;
+
+    // 判断回文
+    public boolean isPalindrome(String s, int start, int end) &#123;
+        for (int i = start, j = end; i &lt; j; i++, j--) &#123;
+            if (s.charAt(i) != s.charAt(j)) &#123;
+                return false;
+            &#125;
+        &#125;
+        return true;
+    &#125;
+&#125;
+</code></pre>
+</li>
+<li>
+<p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/subsets/">子集</a>：给你一个整数数组 <code>nums</code> ，数组中的元素 <strong>互不相同</strong> 。返回该数组所有可能的子集（幂集）。解集 <strong>不能</strong> 包含重复的子集。你可以按 <strong>任意顺序</strong> 返回解集。</p>
+<pre><code class="language-java">class Subsets &#123;
+    List&lt;List&lt;Integer&gt;&gt; res;
+    List&lt;Integer&gt; path;
+
+    public List&lt;List&lt;Integer&gt;&gt; subsets(int[] nums) &#123;
+        res = new LinkedList&lt;&gt;();
+        path = new LinkedList&lt;&gt;();
+        res.add(new LinkedList&lt;&gt;()); // 空集
+        process(nums, 0);
+        return res;
+    &#125;
+
+    public void process(int[] nums, int index) &#123;
+
+        if (!res.contains(path)) &#123;
+            res.add(new LinkedList&lt;&gt;(path));
+        &#125;
+        if (path.size() == nums.length) return; // 说明找完了
+
+        for (int i = index; i &lt; nums.length; i++) &#123;
+            path.add(nums[i]);
+            process(nums, i + 1);
+            path.remove(path.size() - 1);
+        &#125;
+    &#125;
+&#125;
+</code></pre>
+</li>
+<li>
+<p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/subsets-ii/">子集 II</a>：给你一个整数数组 <code>nums</code> ，其中可能包含重复元素，请你返回该数组所有可能的子集（幂集）。解集 <strong>不能</strong> 包含重复的子集。返回的解集中，子集可以按 <strong>任意顺序</strong> 排列。</p>
+<pre><code class="language-java">public class Subsets2 &#123;
+    List&lt;List&lt;Integer&gt;&gt; res;
+    List&lt;Integer&gt; path;
+
+    public List&lt;List&lt;Integer&gt;&gt; subsetsWithDup(int[] nums) &#123;
+        res = new LinkedList&lt;&gt;();
+        path = new LinkedList&lt;&gt;();
+        Arrays.sort(nums); // 排序
+        res.add(new LinkedList&lt;&gt;()); // 空集
+        process(nums, 0);
+        return res;
+    &#125;
+
+    public void process(int[] nums, int index) &#123;
+        if (!res.contains(path)) &#123;
+            res.add(new LinkedList&lt;&gt;(path));
+        &#125;
+        if (path.size() == nums.length) return; // 说明找完了
+
+        for (int i = index; i &lt; nums.length; i++) &#123;
+            if (i &gt; index &amp;&amp; nums[i] == nums[i - 1]) &#123; // 去重
+                continue;
+            &#125;
+            path.add(nums[i]);
+            process(nums, i + 1);
+            path.remove(path.size() - 1);
+        &#125;
+    &#125;
+&#125;
+</code></pre>
+</li>
+<li>
+<p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/non-decreasing-subsequences/">递增子序列</a>：给你一个整数数组 <code>nums</code> ，找出并返回所有该数组中不同的递增子序列，递增子序列中 <strong>至少有两个元素</strong> 。你可以按 <strong>任意顺序</strong> 返回答案。数组中可能含有重复元素，如出现<strong>两个整数相等，也可以视作递增序列的一种特殊情况</strong>。</p>
+<pre><code class="language-java">class Solution &#123;
+    List&lt;List&lt;Integer&gt;&gt; res = new LinkedList&lt;&gt;();
+    List&lt;Integer&gt; path = new LinkedList&lt;&gt;();
+
+    public List&lt;List&lt;Integer&gt;&gt; findSubsequences(int[] nums) &#123;
+        process(nums, 0);
+        return res;
+    &#125;
+
+    public void process(int[] nums, int index) &#123;
+        if (path.size() &gt; 1) &#123;
+            res.add(new LinkedList&lt;&gt;(path));
+        &#125;
+
+        // HashSet 去重
+        HashSet&lt;Integer&gt; hs = new HashSet&lt;&gt;();
+        for (int i = index; i &lt; nums.length; i++) &#123;
+            if (!path.isEmpty() &amp;&amp; nums[i] &lt; path.get(path.size() - 1) || hs.contains(nums[i])) &#123;
+                continue;
+            &#125;
+            path.add(nums[i]);
+            hs.add(nums[i]);
+            process(nums, i + 1);
+            path.remove(path.size() - 1);
+        &#125;
+    &#125;
+&#125;
+</code></pre>
+</li>
+<li>
+<p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/permutations/">全排列</a>：给定一个不含重复数字的数组 <code>nums</code> ，返回其<em>所有可能的全排列</em> 。你可以 <strong>按任意顺序</strong> 返回答案。</p>
+<pre><code class="language-java">public class Permute &#123;
+    List&lt;List&lt;Integer&gt;&gt; res = new LinkedList&lt;&gt;();
+    List&lt;Integer&gt; path = new LinkedList&lt;&gt;();
+
+    public List&lt;List&lt;Integer&gt;&gt; permute(int[] nums) &#123;
+        boolean[] used = new boolean[nums.length];
+        process(nums, used);
+        return res;
+    &#125;
+
+    /**
+     * 全排列问题，每次都需要从头开始搜索,因此不用参数index
+     * used数组，其实就是记录此时path里都有哪些元素使用了，一个排列里一个元素只能使用一次。
+     */
+    public void process(int[] nums, boolean[] used) &#123;
+        if (path.size() == nums.length) &#123;
+            res.add(new LinkedList&lt;&gt;(path));
+            return;
+        &#125;
+
+        for (int i = 0; i &lt; nums.length; i++) &#123;
+            if (used[i]) &#123;
+                continue;
+            &#125;
+            path.add(nums[i]);
+            used[i] = true;
+            process(nums, used);
+            // 回溯
+            used[i] = false;
+            path.remove(path.size() - 1);
+        &#125;
+    &#125;
+&#125;
+</code></pre>
+</li>
+<li>
+<p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/permutations-ii/"> 全排列 II</a>：给定一个可包含重复数字的序列 <code>nums</code> ，<em><strong>按任意顺序</strong></em> 返回所有<strong>不重复</strong>的全排列。</p>
+<pre><code class="language-java">public class PermuteUnique &#123;
+    List&lt;List&lt;Integer&gt;&gt; res = new LinkedList&lt;&gt;();
+    List&lt;Integer&gt; path = new LinkedList&lt;&gt;();
+
+    public List&lt;List&lt;Integer&gt;&gt; permuteUnique(int[] nums) &#123;
+        boolean[] used = new boolean[nums.length];
+        process(nums, used);
+        return res;
+    &#125;
+
+    public void process(int[] nums, boolean[] used) &#123;
+        if (path.size() == nums.length) &#123;
+            res.add(new LinkedList&lt;&gt;(path));
+            return;
+        &#125;
+
+        // HashSet 去重
+        HashSet&lt;Integer&gt; hs = new HashSet&lt;&gt;();
+        for (int i = 0; i &lt; nums.length; i++) &#123;
+            if (used[i] || hs.contains(nums[i])) &#123;
+                continue;
+            &#125;
+            path.add(nums[i]);
+            hs.add(nums[i]);
+            used[i] = true;
+            process(nums, used);
+            // 回溯
+            used[i] = false;
+            path.remove(path.size() - 1);
+        &#125;
+    &#125;
+&#125;
+</code></pre>
+</li>
+<li>
+<p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/n-queens/">N 皇后</a></p>
+<pre><code class="language-java">class Solution &#123;
+    List&lt;List&lt;String&gt;&gt; res = new LinkedList&lt;&gt;();
+    public List&lt;List&lt;String&gt;&gt; solveNQueens(int n) &#123;
+        char[][] matrix = new char[n][n];
+        for (int i = 0; i &lt; matrix.length; i++) &#123;
+            for (int j = 0; j &lt; matrix[0].length; j++) &#123;
+                matrix[i][j] = '.';
+            &#125;
+        &#125;
+        process(matrix,n,0);
+        return res;
+    &#125;
+
+    public void process(char[][] matrix, int n, int row) &#123;
+        if (row == n) &#123;
+            List&lt;String&gt; list = new LinkedList&lt;&gt;();
+            for (int i = 0; i &lt; n; i++) &#123;
+                StringBuilder sb = new StringBuilder();
+                int k = 0;
+                while (k &lt; n) &#123;
+                    sb.append(matrix[i][k++]);
+                &#125;
+                list.add(sb.toString());
+            &#125;
+            res.add(list);
+            return;
+        &#125;
+
+        for (int col = 0; col &lt; n; col++) &#123;
+            if (isValid(matrix, row, col, n)) &#123;
+                matrix[row][col] = 'Q'; // 放置皇后
+                process(matrix, n, row + 1);
+                matrix[row][col] = '.'; // 回溯，撤销
+            &#125;
+        &#125;
+    &#125;
+
+    // 检查是否合法
+    public static boolean isValid(char[][] matrix, int row, int col, int n) &#123;
+        // 检查列
+        for (int i = 0; i &lt; row; i++) &#123;
+            if (matrix[i][col] == 'Q') &#123;
+                return false;
+            &#125;
+        &#125;
+        // 检查左上
+        for (int i = row - 1, j = col - 1; i &gt;= 0 &amp;&amp; j &gt;= 0; i--, j--) &#123;
+            if (matrix[i][j] == 'Q') &#123;
+                return false;
+            &#125;
+        &#125;
+        // 检查右上
+        for (int i = row - 1, j = col + 1; i &gt;= 0 &amp;&amp; j &lt; n; i--, j++) &#123;
+            if (matrix[i][j] == 'Q') &#123;
+                return false;
+            &#125;
+        &#125;
+        return true;
+    &#125;
+&#125;
+</code></pre>
+</li>
+</ul>
+<h2 id="贪心算法">贪心算法</h2>
+<ul>
+<li>
+<p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/assign-cookies/">分发饼干</a>：对每个孩子 <code>i</code>，都有一个胃口值 <code>g[i]</code>，这是能让孩子们满足胃口的饼干的最小尺寸；并且每块饼干 <code>j</code>，都有一个尺寸 <code>s[j]</code> 。如果 <code>s[j] &gt;= g[i]</code>，我们可以将这个饼干 <code>j</code> 分配给孩子 <code>i</code> ，这个孩子会得到满足。你的目标是尽可能满足越多数量的孩子，并输出这个最大数值。</p>
+<pre><code class="language-java">class BiscuitDistribution &#123;
+    public int findContentChildren(int[] g, int[] s) &#123;
+        // 排序
+        Arrays.sort(g);
+        Arrays.sort(s);
+        int res = 0;
+
+        int child = g.length - 1;
+        for (int i = s.length - 1; i &gt;= 0; i--) &#123;
+            if (child &lt; 0) break;
+
+            // 不能分配
+            while (child &gt; 0 &amp;&amp; s[i] &lt; g[child]) &#123;
+                child--;
+            &#125;
+
+            // 可以分配
+            if (s[i] &gt;= g[child]) &#123;
+                res++;
+                child--;
+            &#125;
+        &#125;
+        return res;
+    &#125;
+&#125;
+</code></pre>
+</li>
+<li>
+<p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/wiggle-subsequence/">摆动序列</a></p>
+<pre><code class="language-java">public class WiggleSubsequence &#123;
+    public int wiggleMaxLength(int[] nums) &#123;
+        if (nums.length &lt;= 1) &#123;
+            return nums.length;
+        &#125;
+        int ans = 1;
+        int pre = 0;
+        int cur = 0;
+        for (int i = 1; i &lt; nums.length; i++) &#123;
+            cur = nums[i] - nums[i - 1];
+            if ((cur &gt; 0 &amp;&amp; pre &lt;= 0) || (cur &lt; 0 &amp;&amp; pre &gt;= 0)) &#123;
+                ans++;
+                pre = cur;
+            &#125;
+        &#125;
+        return ans;
+    &#125;
+&#125;
+</code></pre>
+</li>
+<li>
+<p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/maximum-subarray/">最大子数组和</a>：给你一个整数数组 <code>nums</code> ，请你找出一个具有最大和的连续子数组（子数组最少包含一个元素），返回其最大和。</p>
+<pre><code class="language-java">public class MaxSubArray &#123;
+    public int maxSubArray(int[] nums) &#123;
+        if (nums.length &lt;= 1) &#123;
+            return nums[0];
+        &#125;
+
+        int res = Integer.MIN_VALUE;
+        int count = 0;
+        for (int i = 0; i &lt; nums.length; i++) &#123;
+            count += nums[i];
+            res = Math.max(res, count);
+            // 重置，因为遇到负数一定会使res减小
+            if (count &lt; 0) &#123;
+                count = 0;
+            &#125;
+        &#125;
+
+        return res;
+    &#125;
+&#125;
+</code></pre>
+</li>
+<li>
+<p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/best-time-to-buy-and-sell-stock-ii/">买卖股票的最佳时机 II</a>：给你一个整数数组 <code>prices</code> ，其中 <code>prices[i]</code> 表示某支股票第 <code>i</code> 天的价格。在每一天，你可以决定是否购买和/或出售股票。你在任何时候 <strong>最多</strong> 只能持有 <strong>一股</strong> 股票。你也可以先购买，然后在 <strong>同一天</strong> 出售。返回 <em>你能获得的 <strong>最大</strong> 利润</em> 。</p>
+<pre><code class="language-java">/**
+ * 假如第 0 天买入，第 3 天卖出，那么利润为：prices[3] - prices[0]。
+ * 相当于(prices[3] - prices[2]) + (prices[2] - prices[1]) + (prices[1] - prices[0])。
+ * 就是把利润分解为每天为单位的维度
+ */
+public class MaxProfit &#123;
+    public int maxProfit(int[] prices) &#123;
+        if (prices.length &lt;= 1) &#123;
+            return 0;
+        &#125;
+        int ans = 0;
+        for (int i = 1; i &lt; prices.length; i++) &#123;
+            ans += Math.max(0, prices[i] - prices[i - 1]);
+        &#125;
+
+        return ans;
+    &#125;
+&#125;
+</code></pre>
+</li>
+<li>
+<p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/best-time-to-buy-and-sell-stock/">买卖股票的最佳时机</a>：给定一个数组 <code>prices</code> ，它的第 <code>i</code> 个元素 <code>prices[i]</code> 表示一支给定股票第 <code>i</code> 天的价格。你只能选择 <strong>某一天</strong> 买入这只股票，并选择在 <strong>未来的某一个不同的日子</strong> 卖出该股票。设计一个算法来计算你所能获取的最大利润。返回你可以从这笔交易中获取的最大利润。如果你不能获取任何利润，返回 <code>0</code>。</p>
+<pre><code class="language-java">class MaxProfit &#123;
+    public int maxProfit(int[] prices) &#123;
+        int ans = 0;
+        for (int i = 1; i &lt; prices.length; i++) &#123;
+            ans = Math.max(prices[i] - prices[i - 1], ans);
+            prices[i] = Math.min(prices[i], prices[i - 1]);
+        &#125;
+        return ans;
+    &#125;
+&#125;
+</code></pre>
+</li>
+<li>
+<p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/jump-game/">跳跃游戏</a>：给你一个非负整数数组 <code>nums</code> ，你最初位于数组的 <strong>第一个下标</strong> 。数组中的每个元素代表你在该位置可以跳跃的最大长度。判断你是否能够到达最后一个下标，如果可以，返回 <code>true</code> ；否则，返回 <code>false</code> 。</p>
+<pre><code class="language-java">/**
+ * 每次移动取最大跳跃步数（得到最大的覆盖范围），每移动一个单位，就更新最大覆盖范围。
+ * 贪心算法局部最优解：每次取最大跳跃步数（取最大覆盖范围），整体最优解：最后得到整体最大覆盖范围，看是否能到终点。
+ */
+class Solution &#123;
+    public boolean canJump(int[] nums) &#123;
+        if (nums.length == 1) return true;
+        int coverRange = 0;
+        for (int i = 0; i &lt;= coverRange; i++) &#123;
+            coverRange = Math.max(coverRange, i + nums[i]);
+            if (coverRange &gt;= nums.length - 1) &#123;
+                return true;
+            &#125;
+        &#125;
+        return false;
+    &#125;
+&#125;
+</code></pre>
+</li>
+<li>
+<p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/jump-game-ii/">跳跃游戏 II</a>：给定一个长度为 <code>n</code> 的 <strong>0 索引</strong>整数数组 <code>nums</code>。初始位置为 <code>nums[0]</code>。每个元素 <code>nums[i]</code> 表示从索引 <code>i</code> 向前跳转的最大长度。换句话说，如果你在 <code>nums[i]</code> 处，你可以跳转到任意 <code>nums[i + j]</code> 处:</p>
+<ul>
+<li><code>0 &lt;= j &lt;= nums[i]</code></li>
+<li><code>i + j &lt; n</code></li>
+</ul>
+<p>返回到达 <code>nums[n - 1]</code> 的最小跳跃次数。生成的测试用例可以到达 <code>nums[n - 1]</code>。</p>
+<pre><code class="language-java">class Solution &#123;
+    public int jump(int[] nums) &#123;
+        if (nums.length &lt;= 1) &#123;
+            return 0;
+        &#125;
+        int next = 0;
+        int step = 0;
+        int cur = 0;
+        for (int i = 0; i &lt; nums.length; i++) &#123;
+            next = Math.max(next, i + nums[i]);
+            if (next &gt;= nums.length - 1) &#123;
+                step++;
+                break;
+            &#125;
+
+            if (i == cur) &#123;
+                cur = next;
+                step++;
+            &#125;
+        &#125;
+
+        return step;
+    &#125;
+&#125;
+</code></pre>
+</li>
+<li>
+<p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/gas-station/">加油站</a></p>
+<pre><code class="language-java">class Solution &#123;
+    // 暴力模拟 O(n^2)
+    public int canCompleteCircuit(int[] gas, int[] cost) &#123;
+        for(int i=0;i&lt;gas.length;i++)&#123;
+            int rest = gas[i] - cost[i]; // 剩余油量
+            int pos = (i+1) % gas.length; // 模拟出发的位置
+            while(rest&gt;0 &amp;&amp; pos!=i)&#123;
+                rest += gas[pos] - cost[pos];
+                pos = (pos + 1) % gas.length;
+            &#125;
+
+            if(rest&gt;=0 &amp;&amp; pos==i)&#123;
+                return i;
+            &#125;
+        &#125;
+        return -1;
+    &#125;
+
+    // 贪心 O(N)
+    public int canCompleteCircuit(int[] gas, int[] cost) &#123;
+        int rest = 0;
+        int total = 0;
+        int pos = 0;
+        for(int i=0;i&lt;gas.length;i++)&#123;
+            rest += gas[i] - cost[i]; 
+            total += gas[i] - cost[i];
+
+            // 如果之前累加剩余油量为负值，则肯定无法从i之前的位置到达
+            if(rest&lt;0)&#123;
+                pos = i + 1;
+                rest = 0;
+            &#125;
+        &#125;
+        if(total&lt;0) return -1;
+        return pos;
+    &#125;
+&#125;
+</code></pre>
+</li>
+<li>
+<p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/candy/">分发糖果</a>：<code>n</code> 个孩子站成一排。给你一个整数数组 <code>ratings</code> 表示每个孩子的评分。你需要按照以下要求，给这些孩子分发糖果：</p>
+<ul>
+<li>每个孩子至少分配到 <code>1</code> 个糖果。</li>
+<li>相邻两个孩子评分更高的孩子会获得更多的糖果。</li>
+</ul>
+<p>请你给每个孩子分发糖果，计算并返回需要准备的 <strong>最少糖果数目</strong>。</p>
+<pre><code class="language-java">/**
+ * 本题采用了两次贪心的策略。
+ * 一次是从左到右遍历，只比较右边孩子评分比左边大的情况。
+ * 一次是从右到左遍历，只比较左边孩子评分比右边大的情况
+ */
+class Candy &#123;
+    public static int candy(int[] ratings) &#123;
+        int[] candys = new int[ratings.length];
+        candys[0] = 1;
+
+        // 从前往后，右边比左边大的情况
+        for (int i = 1; i &lt; ratings.length; i++) &#123;
+            if (ratings[i] &gt; ratings[i - 1]) &#123;
+                candys[i] = candys[i - 1] + 1;
+            &#125; else &#123;
+                candys[i] = 1;
+            &#125;
+        &#125;
+
+        // 从前往后，左边比右边大的情况
+        for (int i = ratings.length - 2; i &gt;= 0; i--) &#123;
+            if (ratings[i] &gt; ratings[i + 1]) &#123;
+                candys[i] = Math.max(candys[i + 1] + 1, candys[i]);
+            &#125;
+        &#125;
+        int res = 0;
+        for (int candy : candys) &#123;
+            res += candy;
+        &#125;
+
+        return res;
+    &#125;
+&#125;
+
+</code></pre>
+</li>
+</ul>
+<h2 id="动态规划">动态规划</h2>
+<ul>
+<li>
+<p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/fibonacci-number/">斐波那契数</a></p>
+<pre><code class="language-java">class Solution &#123;
+    public int fib(int n) &#123;
+        if (n == 0 || n == 1) return n;
+        int a = 0;
+        int b = 1;
+        for (int i = 2; i &lt;= n; i++) &#123;
+            int sum = a + b;
+            a = b;
+            b = sum;
+        &#125;
+        return b;
+    &#125;
+&#125;
+</code></pre>
+</li>
+<li>
+<p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/min-cost-climbing-stairs/">使用最小花费爬楼梯</a>：给你一个整数数组 <code>cost</code> ，其中 <code>cost[i]</code> 是从楼梯第 <code>i</code> 个台阶向上爬需要支付的费用。一旦你支付此费用，即可选择向上爬一个或者两个台阶。你可以选择从下标为 <code>0</code> 或下标为 <code>1</code> 的台阶开始爬楼梯。</p>
+<p>请你计算并返回达到楼梯顶部的最低花费。</p>
+<pre><code class="language-java">class Solution &#123;
+    public int minCostClimbingStairs(int[] cost) &#123;
+        int n = cost.length;
+        int[] dp = new int[n + 1]; // dp[i]表示爬前i个楼梯所需的最小花费
+        dp[0] = 0;
+        dp[1] = 0;
+        for (int i = 2; i &lt;= n; i++) &#123;
+            int p1 = dp[i - 1] + cost[i - 1];
+            int p2 = dp[i - 2] + cost[i - 2];
+            dp[i] = Math.min(p1, p2);
+        &#125;
+        return dp[n];
+    &#125;
+&#125;
+</code></pre>
+</li>
+<li>
+<p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/house-robber/">打家劫舍</a></p>
+<pre><code class="language-java">// 暴力递归
+class Solution &#123;
+    public int rob(int[] nums) &#123;
+        return helper(nums, 0);
+    &#125;
+
+    public int helper(int[] nums, int index) &#123;
+        if (index &lt; 0 || index &gt; nums.length - 1) &#123;
+            return 0;
+        &#125;
+        return Math.max(nums[index] + helper(nums, index + 2), helper(nums, index + 1));
+    &#125;
+&#125;
+
+// 动态规划
+class Solution &#123;
+    public int rob(int[] nums) &#123;
+        int n = nums.length;
+        if (n == 1) &#123;
+            return nums[0];
+        &#125;
+        int[] money = new int[n]; // 偷盗前i个房屋，能获得的最大价值
+        money[0] = nums[0];
+        money[1] = Math.max(nums[0], nums[1]);
+        for (int i = 2; i &lt; n; i++) &#123;
+            money[i] = Math.max(nums[i] + money[i - 2], money[i - 1]);
+        &#125;
+        return money[n - 1];
+    &#125;
+&#125;
+</code></pre>
+</li>
+<li>
+<p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/house-robber-ii/">打家劫舍 II</a></p>
+<pre><code class="language-java">class Solution &#123;
+    public int rob(int[] nums) &#123;
+        int n = nums.length;
+        if (n == 1) &#123;
+            return nums[0];
+        &#125;
+        // 两种情况：取首或取尾
+        return Math.max(helper(nums, 0, n - 2), helper(nums, 1, n - 1));
+    &#125;
+
+    public int helper(int[] nums, int start, int end) &#123;
+        if (start == end) &#123;
+            return nums[start];
+        &#125;
+        int[] money = new int[nums.length]; // 偷盗前i个房屋，能获得的最大价值
+        money[start] = nums[start];
+        money[start + 1] = Math.max(nums[start], nums[start + 1]);
+        for (int i = start + 2; i &lt;= end; i++) &#123;
+            money[i] = Math.max(nums[i] + money[i - 2], money[i - 1]);
+        &#125;
+        return money[end];
+    &#125;
+&#125;
+</code></pre>
+</li>
+<li>
+<p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/house-robber-iii/">打家劫舍 III</a></p>
+<pre><code class="language-java">class Solution &#123;
+    // 暴力递归
+    public int rob(TreeNode root) &#123;
+        if (root == null) return 0;
+        if (root.left == null &amp;&amp; root.right == null) &#123;
+            return root.val;
+        &#125;
+
+        int val1 = root.val;
+        // 偷父节点
+        if (root.left != null) &#123;
+            val1 += rob(root.left.left) + rob(root.left.right);
+        &#125;
+        if (root.right != null) &#123;
+            val1 += rob(root.right.left) + rob(root.right.right);
+        &#125;
+
+        // 不偷父节点
+        int val2 = rob(root.left) + rob(root.right);
+
+        return Math.max(val1, val2);
+    &#125;
+    
+    // 优化
+    // 通过map记录计算过的节点，降低时间复杂度
+	public int rob(TreeNode root) &#123;
+        if (root == null) return 0;
+        if (root.left == null &amp;&amp; root.right == null) &#123;
+            return root.val;
+        &#125;
+        // 如果已经计算过，则直接返回结果
+        if (map.containsKey(root)) &#123;
+            return map.get(root);
+        &#125;
+        int val1 = root.val;
+        // 偷父节点
+        if (root.left != null) &#123;
+            val1 += rob(root.left.left) + rob(root.left.right);
+        &#125;
+        if (root.right != null) &#123;
+            val1 += rob(root.right.left) + rob(root.right.right);
+        &#125;
+
+        // 不偷父节点
+        int val2 = rob(root.left) + rob(root.right);
+        map.put(root, Math.max(val1, val2)); // 记录中间结果
+        return Math.max(val1, val2);
+    &#125;
+&#125;
+</code></pre>
+</li>
+<li>
+<p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/unique-paths/">不同路径</a>：一个机器人位于一个 <code>m x n</code> 网格的左上角 （起始点在下图中标记为 “Start” ）。机器人每次只能向下或者向右移动一步。机器人试图达到网格的右下角（在下图中标记为 “Finish” ）。问总共有多少条不同的路径？</p>
+<pre><code class="language-java">public class RobotPath &#123;
+    static int ans = 0;
+
+    // 暴力递归
+    public static int uniquePaths1(int m, int n) &#123;
+        int[][] matrix = new int[m][n];
+        dfs(matrix, 0, 0);
+        return ans;
+    &#125;
+    public static void dfs(int[][] matrix, int x, int y) &#123;
+        if (x &lt; 0 || y &lt; 0 || x &gt; matrix.length - 1 ||
+                y &gt; matrix[0].length - 1 || matrix[x][y] != 0) &#123;
+            return;
+        &#125;
+
+        // 找到一条路径
+        if (x == matrix.length - 1 &amp;&amp; y == matrix[0].length - 1) &#123;
+            ans++;
+        &#125;
+
+        matrix[x][y] = 1; // 标记，已经过的位置
+        dfs(matrix, x + 1, y);
+        dfs(matrix, x, y + 1);
+        matrix[x][y] = 0; // 回溯，撤回结果
+    &#125;
+
+    // 动态规划
+    public static int uniquePaths2(int m, int n) &#123;
+        int[][] dp = new int[m][n]; // dp[i][j]表示到达(i,j)的路径数
+        for (int i = 0; i &lt; m; i++) dp[i][0] = 1;
+        for (int j = 0; j &lt; n; j++) dp[0][j] = 1;
+
+        for (int i = 1; i &lt; m; i++) &#123;
+            for (int j = 1; j &lt; n; j++) &#123;
+                dp[i][j] = dp[i][j - 1] + dp[i - 1][j];
+            &#125;
+        &#125;
+
+        return dp[m - 1][n - 1];
+    &#125;
+&#125;
+</code></pre>
+</li>
+<li>
+<p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/unique-paths-ii/">不同路径 II</a></p>
+<pre><code class="language-java">public class RobotPathII &#123;
+    static int ans = 0;
+    // 暴力递归
+    public static int uniquePathsWithObstacles1(int[][] obstacleGrid) &#123;
+        dfs(obstacleGrid, 0, 0);
+        return ans;
+    &#125;
+
+    public static void dfs(int[][] ob, int x, int y) &#123;
+        if (x &lt; 0 || y &lt; 0 || x &gt; ob.length - 1 || y &gt; ob[0].length - 1 || ob[x][y] != 0) &#123;
+            return;
+        &#125;
+
+        if (x == ob.length - 1 &amp;&amp; y == ob[0].length - 1) &#123;
+            ans++;
+        &#125;
+        ob[x][y] = 2;
+
+        dfs(ob, x + 1, y);
+        dfs(ob, x, y + 1);
+
+        ob[x][y] = 0;
+    &#125;
+    
+    // 动态规划
+    public static int uniquePathsWithObstacles2(int[][] obstacleGrid) &#123;
+        int m = obstacleGrid.length;
+        int n = obstacleGrid[0].length;
+        int[][] dp = new int[m][n];  // dp[i][j]:到达(i,j)的路径数
+        for (int i = 0; i &lt; m; i++) &#123;
+            if (obstacleGrid[i][0] != 1) &#123;
+                dp[i][0] = 1;
+            &#125;
+        &#125;
+        for (int j = 0; j &lt; n; j++) &#123;
+            if (obstacleGrid[0][j] != 1) &#123;
+                dp[0][j] = 1;
+            &#125;
+        &#125;
+
+        for (int i = 1; i &lt; m; i++) &#123;
+            for (int j = 1; j &lt; n; j++) &#123;
+                if (obstacleGrid[i][j] == 0) &#123;
+                    dp[i][j] = dp[i][j - 1] + dp[i - 1][j];
+                &#125;
+            &#125;
+        &#125;
+        return dp[m - 1][n - 1];
+    &#125;
+&#125;
+</code></pre>
+</li>
+<li>
+<p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/unique-paths-iii/">不同路径 III</a></p>
+<pre><code class="language-java">public class RobotPathIII &#123;
+
+    public static int uniquePathsIII(int[][] grid) &#123;
+        int m = grid.length;
+        int n = grid[0].length;
+
+        int rest = 1; // 起点到终点需要一步（无障碍）
+        int[] start = new int[2];
+        for (int i = 0; i &lt; m; i++) &#123;
+            for (int j = 0; j &lt; n; j++) &#123;
+                if (grid[i][j] == 1) &#123;
+                    start[0] = i;
+                    start[1] = j;
+                &#125;
+                if (grid[i][j] == 0) &#123;
+                    rest++;
+                &#125;
+            &#125;
+        &#125;
+        return dfs(grid, start[0], start[1], rest);
+    &#125;
+
+    // 暴力递归
+    public static int dfs(int[][] grid, int x, int y, int rest) &#123;
+        if (x &lt; 0 || y &lt; 0 || x &gt; grid.length - 1 || y &gt; grid[0].length - 1 || grid[x][y] == -1) &#123;
+            return 0;
+        &#125;
+
+        if (grid[x][y] == 2) &#123;
+            return rest == 0 ? 1 : 0;
+        &#125;
+
+        grid[x][y] = -1;
+
+        int sum = 0;
+        sum += dfs(grid, x + 1, y, rest - 1);
+        sum += dfs(grid, x, y + 1, rest - 1);
+        sum += dfs(grid, x - 1, y, rest - 1);
+        sum += dfs(grid, x, y - 1, rest - 1);
+
+        grid[x][y] = 0;
+        return sum;
+    &#125;
+&#125;
+</code></pre>
+</li>
+</ul>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="http://example.com">ming</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="http://example.com/2023/07/18/Leetcode%E5%88%B7%E9%A2%98%E6%80%BB%E7%BB%93/">http://example.com/2023/07/18/Leetcode%E5%88%B7%E9%A2%98%E6%80%BB%E7%BB%93/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"></div><div class="post_share"><div class="social-share" data-image="/img/smile_boy.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2023/07/20/Ubuntu%20%E5%AE%89%E8%A3%85%20Redis/" title="Ubuntu 安装 Redis"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Previous Post</div><div class="prev_info">Ubuntu 安装 Redis</div></div></a></div><div class="next-post pull-right"><a href="/2023/07/16/Web%E5%BC%80%E5%8F%91%E7%9B%B8%E5%85%B3/" title="Web开发相关"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Next Post</div><div class="next_info">Web开发相关</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/smile_boy.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">ming</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">15</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">13</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">3</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Catalog</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A0%88%E5%92%8C%E9%98%9F%E5%88%97"><span class="toc-number">1.</span> <span class="toc-text">栈和队列</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%93%BE%E8%A1%A8"><span class="toc-number">2.</span> <span class="toc-text">链表</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="toc-number">3.</span> <span class="toc-text">字符串</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E5%8F%89%E6%A0%91"><span class="toc-number">4.</span> <span class="toc-text">二叉树</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%9E%E6%BA%AF"><span class="toc-number">5.</span> <span class="toc-text">回溯</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95"><span class="toc-number">6.</span> <span class="toc-text">贪心算法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92"><span class="toc-number">7.</span> <span class="toc-text">动态规划</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/08/01/%E7%82%B9%E8%AF%84%E9%A1%B9%E7%9B%AE/" title="点评项目">点评项目</a><time datetime="2023-08-01T03:16:40.000Z" title="Created 2023-08-01 11:16:40">2023-08-01</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/07/20/Ubuntu%20%E5%AE%89%E8%A3%85%20Redis/" title="Ubuntu 安装 Redis">Ubuntu 安装 Redis</a><time datetime="2023-07-20T05:40:41.000Z" title="Created 2023-07-20 13:40:41">2023-07-20</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/07/18/Leetcode%E5%88%B7%E9%A2%98%E6%80%BB%E7%BB%93/" title="Leetcode刷题总结">Leetcode刷题总结</a><time datetime="2023-07-18T09:07:42.000Z" title="Created 2023-07-18 17:07:42">2023-07-18</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/07/16/Web%E5%BC%80%E5%8F%91%E7%9B%B8%E5%85%B3/" title="Web开发相关">Web开发相关</a><time datetime="2023-07-16T04:41:51.000Z" title="Created 2023-07-16 12:41:51">2023-07-16</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/07/01/Ubuntu%E9%85%8D%E7%BD%AEssh/" title="Ubuntu配置ssh">Ubuntu配置ssh</a><time datetime="2023-07-01T05:43:21.000Z" title="Created 2023-07-01 13:43:21">2023-07-01</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2023 By ming</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Switch Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back To Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

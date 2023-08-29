@@ -1,0 +1,452 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>ming's blog</title><meta name="author" content="ming"><meta name="copyright" content="ming"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta property="og:type" content="website">
+<meta property="og:title" content="ming&#39;s blog">
+<meta property="og:url" content="http://example.com/index.html">
+<meta property="og:site_name" content="ming&#39;s blog">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/img/smile_boy.jpg">
+<meta property="article:author" content="ming">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/img/smile_boy.jpg"><link rel="shortcut icon" href="/img/dog.png"><link rel="canonical" href="http://example.com/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: undefined,
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: 'Just',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'ming\'s blog',
+  isPost: false,
+  isHome: true,
+  isHighlightShrink: false,
+  isToc: false,
+  postUpdate: '2023-08-29 22:08:56'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/smile_boy.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">15</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">13</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">3</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div></div></div><div class="page" id="body-wrap"><header class="full_page" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="ming's blog"><span class="site-name">ming's blog</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="site-info"><h1 id="site-title">ming's blog</h1></div><div id="scroll-down"><i class="fas fa-angle-down scroll-down-effects"></i></div></header><main class="layout" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2023/08/01/%E7%82%B9%E8%AF%84%E9%A1%B9%E7%9B%AE/" title="点评项目">点评项目</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2023-08-01T03:16:40.000Z" title="Created 2023-08-01 11:16:40">2023-08-01</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/">技术分享</a></span></div><div class="content">点评项目是前后端分离项目，前端部署在nginx服务器上，后端部署在tomcat上。
+用户登录
+
+
+权限认证方式
+
+
+HTTP是无状态的；
+
+
+Session（会话）认证：服务器为了保存用户状态而创建的一个对象。key-value形式存储；
+
+
+Token（令牌）：由服务端生成的一串字符串，作为客户端进行请求的一个凭证；当用户第一次登陆后，服务器会生成一个Token并返回给客户端，之后客户端再进行需要权限的请求时只需要带上这个Token即可，无需再携带用户名和密码进行认证；通过某种算法策略生成唯一的Token；
+
+
+
+
+集群**session共享问题**：集群模式下多台tomcat服务器不共享session存储空间，当请求切换到不同tomcat服务时导致数据丢失的问题。
+因为Redis满足数据共享，内存存储，k-v键值对结构，因此使用Redis替代session可以解决session集群共享问题；
+
+
+登陆验证流程
+
+前端提交手机号和验证码；
+校验手机号，如果不符合，返回错误信息；
+从redis获取验证码并校验，如果不一致，则返回错误信息；
+如果一致，根据手机号查询用户；
+判断用户是否存 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2023/07/20/Ubuntu%20%E5%AE%89%E8%A3%85%20Redis/" title="Ubuntu 安装 Redis">Ubuntu 安装 Redis</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2023-07-20T05:40:41.000Z" title="Created 2023-07-20 13:40:41">2023-07-20</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/">技术分享</a></span></div><div class="content">
+
+下载稳定版本Redis
+wget https://download.redis.io/redis-stable.tar.gz
+
+
+
+解压到指定目录
+tar -xzvf redis-stable.tar.gz -C /usr/local
+
+
+
+编译
+cd /usr/local/redis-stable
+make
+
+
+
+安装
+make install
+
+
+
+可能出现的报错：
+
+
+没有找到 make
+sudo apt install make
+
+
+
+/bin/sh: 1: pkg-config: not found
+sudo apt-get install pkg-config
+
+
+
+/bin/sh: 1: cc: not found
+sudo apt install gcc
+
+
+
+
+
+启动Redis服务
+/usr/local/redis-stable/src$ ./redis-server
+# 注意这种方式启动 redis 使用的是默认配置。
+# 也可以通过启动参数告诉 redis 使用指定配置文件使用下面命令启动。
+# ./redis-server ../redis.conf
+
+
+
+ ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2023/07/18/Leetcode%E5%88%B7%E9%A2%98%E6%80%BB%E7%BB%93/" title="Leetcode刷题总结">Leetcode刷题总结</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2023-07-18T09:07:42.000Z" title="Created 2023-07-18 17:07:42">2023-07-18</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">学习笔记</a></span></div><div class="content">栈和队列
+
+
+最小栈：请设计一个栈，除了常规栈支持的pop与push函数以外，还支持min函数，该函数返回栈元素中的最小值。执行push、pop和min操作的时间复杂度必须为O(1)。
+public class MyStack &#123;
+    private Stack&lt;Integer&gt; stackData; // 栈数据
+    private Stack&lt;Integer&gt; stackMin; // 栈的最小值
+
+    public MyStack1() &#123;
+        this.stackData = new Stack&lt;&gt;();
+        this.stackMin = new Stack&lt;&gt;();
+    &#125;
+
+    public int pop() &#123;
+        if (this.stackData.isEmpty()) throw new RuntimeException();
+        int val = this.stackData.pop();
+        ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2023/07/16/Web%E5%BC%80%E5%8F%91%E7%9B%B8%E5%85%B3/" title="Web开发相关">Web开发相关</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2023-07-16T04:41:51.000Z" title="Created 2023-07-16 12:41:51">2023-07-16</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">学习笔记</a></span></div><div class="content">Web访问流程
+
+1、输入地址
+2、浏览器查找域名的 IP 地址
+3、浏览器向 web 服务器发送一个 HTTP 请求
+4、服务器的永久重定向响应
+5、浏览器跟踪重定向地址
+6、服务器处理请求
+7、服务器返回一个 HTTP 响应
+8、浏览器显示 HTML
+9、浏览器发送请求获取嵌入在 HTML 中的资源（如图片、音频、视频、CSS、JS等等）
+
+TCP/IP协议
+
+
+四个概念层
+
+应用层：为用户提供所需要的各种服务；应用层协议包括HTTP（万维网服务）、FTP（文件传输）、SMTP（电子邮件）、SSH（安全远程登陆）、DNS（域名解析）以及许多其他协议。
+传输层：为应用层实体提供端到端的通信功能，保证了数据包的传输顺序和数据的的完整性；TCP传输控制协议和UDP用户数据报协议。
+
+TCP协议是一个面向连接的、可靠的传输协议，它提供一种可靠的字节流，能保证数据完整、无损并且按顺序到达。TCP尽量连续不断地测试网络的负载并且控制发送数据的速度以避免网络过载。另外，TCP试图将数据按照规定的顺序发送。
+UDP协议是一个面向无连接的数据报协议，是一个**“尽力传递”和“不可靠”**协议，不会对 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2023/07/01/Ubuntu%E9%85%8D%E7%BD%AEssh/" title="Ubuntu配置ssh">Ubuntu配置ssh</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2023-07-01T05:43:21.000Z" title="Created 2023-07-01 13:43:21">2023-07-01</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/">技术分享</a></span></div><div class="content">
+
+安装ssh服务器
+sudo apt install openssh-server
+
+
+
+安装ssh客户端
+sudo apt install openssh-client
+
+
+
+配置ssh客户端，去掉PasswordAuthentication yes前面的#号，保存退出；配置ssh服务器，把PermitRootLogin prohibit-password改成PermitRootLogin yes，保存退出。
+sudo vi /etc/ssh/ssh_config
+
+
+
+重启ssh服务
+sudo /etc/init.d/ssh restart
+
+
+
+启动ssh服务
+sudo /etc/init.d/ssh start
+
+
+
+</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2023/07/01/Ubuntu%E4%B8%8A%E5%AE%89%E8%A3%85anaconda/" title="Ubuntu上安装anaconda">Ubuntu上安装anaconda</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2023-07-01T05:40:41.000Z" title="Created 2023-07-01 13:40:41">2023-07-01</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/">技术分享</a></span></div><div class="content">
+
+官网下载 https://www.anaconda.com/安装包
+
+
+运行.sh 文件
+bash Anaconda3-2021.11-Linux-x86_64.sh
+/home/lm/anaconda3 # 安装路径
+
+
+
+配置环境
+sudo vim ~/.bashrc
+export PATH=/home/lm/anaconda3/bin:$PATH
+source ~/anaconda3/bin/activate #修改终端的默认 python 为 anaconda
+
+
+
+保存环境配置
+source ~/.bashrc
+
+
+
+查看版本
+conda --version
+
+
+
+虚拟环境
+conda create -n env_name python=3.8
+
+
+
+激活环境
+conda activate env_name
+
+
+
+查看环境
+conda info --envs
+或
+conda info -e
+或
+conda env list
+
+
+
+复制环境
+conda create --name new_env_name --clone copied_env_name
+
+
+
+删除环境
+co ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2023/07/01/%E6%89%8B%E5%86%99IOC%E5%AE%B9%E5%99%A8/" title="手写IOC容器">手写IOC容器</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2023-07-01T03:16:40.000Z" title="Created 2023-07-01 11:16:40">2023-07-01</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/">技术分享</a></span></div><div class="content">实现：Java 反射 + 注解
+
+
+创建两个注解：
+
+
+@Bean ：创建对象
+@Target(ElementType.TYPE) // 作用在类对象上
+@Retention(RetentionPolicy.RUNTIME) // 运行时生效
+public @interface Bean &#123;
+&#125;
+
+
+
+@Di：属性注入
+@Target(ElementType.FIELD) // 使用在属性上
+@Retention(RetentionPolicy.RUNTIME) // 运行时生效
+public @interface Di &#123;
+&#125;
+
+
+
+
+
+创建Bean容器接口 ApplicationContext，定义方法，返回对象；
+public interface ApplicationContext &#123;
+    // 返回Bean对象
+    Object getBean(Class clazz) throws NoSuchMethodException;
+&#125;
+
+
+
+实现Bean容器接口
+
+返回对象
+创建有参构造器，传递包路径，设置包扫 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2023/06/30/Lucy-in-the-Sky-with-Diamonds/" title="Lucy in the Sky with Diamonds">Lucy in the Sky with Diamonds</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2023-06-30T06:16:04.000Z" title="Created 2023-06-30 14:16:04">2023-06-30</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E6%B2%A1%E7%94%A8%E7%9A%84%E7%9F%A5%E8%AF%86/">没用的知识</a></span></div><div class="content">1967年，甲壳虫乐队发行了一首单曲——《露西在缀满钻石的天空中》(Lucy in the Sky with Diamonds) ，被称作是他们最伟大的作品之一。这首歌曲最初的灵感来自于约翰·列侬 (John Lennon) 的儿子小朱利安 (Julian) 所创作的一幅肖像画，画上描绘的是一位女孩在缀满钻石的天空中。
+1974年，在东非大裂谷附近的阿法尔地区科考队发现了一具完整度约40%的古人类化石，考古队员们通过初步观察，发现化石的骨骼属于女性。而在她刚刚被发现的当天晚上，大家为了庆祝这个伟大的发现，在营地上跳起舞来。这时录音机里正循环播放着披头士乐队的歌曲《露西在缀满钻石的天空中》 （Lucy in the Sky with Diamonds），故将其命名为“露西（Lucy）”。
+2004年，哈佛史密森天体物理中心 (Harvard-Smithsonian Centre) 的天文学家们作出了一个惊人的发现，在我们已知的宇宙中存在着一枚巨大的“天然钻石”，这似乎与甲壳虫乐队那首预言般的标志性歌曲有着某种联系。这颗钻石星球是一颗白矮星，位于半人马座，编号为V886或BPM 37093 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2023/06/28/Spring%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="Spring学习笔记">Spring学习笔记</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2023-06-28T10:06:00.000Z" title="Created 2023-06-28 18:06:00">2023-06-28</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">学习笔记</a></span></div><div class="content">Bean
+
+
+spring中的 Bean 就是 java 对象
+
+
+如何使用反射创建对象？
+
+加载bean.xml配置文件
+对xml文件进行解析
+获取xml文件bean标签属性值：id值属性值和class属性值
+使用反射根据类全路径创建对象
+将创建的对象放到一个Map中（key：唯一标识，value：类的定义）
+
+public class TestUser &#123;
+    @Test
+    public void testUserObject1()&#123;
+        // 加载spring配置文件
+        ApplicationContext context = new ClassPathXmlApplicationContext(&quot;bean.xml&quot;);
+
+        // 获取创建的对象
+        User user = (User)context.getBean(&quot;user&quot;);
+        System.out.println(user);
+
+        // 调用方法进行测试
+         ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2023/06/28/Java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="Java学习笔记">Java学习笔记</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2023-06-28T07:42:49.000Z" title="Created 2023-06-28 15:42:49">2023-06-28</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">学习笔记</a></span></div><div class="content">前言
+java工作方式：
+
+源代码：demo.java文件
+编译器：运行源代码检查错误，将demo.java编译为demo.class文件，由字节码组成
+输出：输出demo.class
+java虚拟机：运行demo.class文件，将字节码转换为平台能理解的形式
+
+java程序结构：
+
+源文件（source file）
+2. 类（class file）
+3. 方法（method）: 函数或过程
+4. 语句（statement）
+
+java是面向对象的语言，所有东西都得包含在类里。
+基本概念
+
+输入输出
+
+import java.util.Scanner;
+
+class Input &#123;
+    public static void main(String[] args) &#123;
+        Scanner input = new Scanner(System.in);
+        System.out.print(&quot;输入一个整数: &quot;);
+        int number = input.nextInt();
+        System. ...</div></div></div><nav id="pagination"><div class="pagination"><span class="page-number current">1</span><a class="page-number" href="/page/2/#content-inner">2</a><a class="extend next" rel="next" href="/page/2/#content-inner"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/smile_boy.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">ming</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">15</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">13</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">3</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/08/01/%E7%82%B9%E8%AF%84%E9%A1%B9%E7%9B%AE/" title="点评项目">点评项目</a><time datetime="2023-08-01T03:16:40.000Z" title="Created 2023-08-01 11:16:40">2023-08-01</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/07/20/Ubuntu%20%E5%AE%89%E8%A3%85%20Redis/" title="Ubuntu 安装 Redis">Ubuntu 安装 Redis</a><time datetime="2023-07-20T05:40:41.000Z" title="Created 2023-07-20 13:40:41">2023-07-20</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/07/18/Leetcode%E5%88%B7%E9%A2%98%E6%80%BB%E7%BB%93/" title="Leetcode刷题总结">Leetcode刷题总结</a><time datetime="2023-07-18T09:07:42.000Z" title="Created 2023-07-18 17:07:42">2023-07-18</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/07/16/Web%E5%BC%80%E5%8F%91%E7%9B%B8%E5%85%B3/" title="Web开发相关">Web开发相关</a><time datetime="2023-07-16T04:41:51.000Z" title="Created 2023-07-16 12:41:51">2023-07-16</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/07/01/Ubuntu%E9%85%8D%E7%BD%AEssh/" title="Ubuntu配置ssh">Ubuntu配置ssh</a><time datetime="2023-07-01T05:43:21.000Z" title="Created 2023-07-01 13:43:21">2023-07-01</time></div></div></div></div><div class="card-widget card-categories"><div class="item-headline">
+            <i class="fas fa-folder-open"></i>
+            <span>Categories</span>
+            
+            </div>
+            <ul class="card-category-list" id="aside-cat-list">
+            <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"><span class="card-category-list-name">学习笔记</span><span class="card-category-list-count">6</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/"><span class="card-category-list-name">技术分享</span><span class="card-category-list-count">7</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E6%B2%A1%E7%94%A8%E7%9A%84%E7%9F%A5%E8%AF%86/"><span class="card-category-list-name">没用的知识</span><span class="card-category-list-count">2</span></a></li>
+            </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>Tags</span></div><div class="card-tag-cloud"><a href="/tags/%E7%BA%BF%E7%A8%8B%E6%B1%A0/" style="font-size: 1.1em; color: #999">线程池</a> <a href="/tags/Redis/" style="font-size: 1.1em; color: #999">Redis</a> <a href="/tags/Ubuntu/" style="font-size: 1.5em; color: #99a9bf">Ubuntu</a> <a href="/tags/hexo/" style="font-size: 1.1em; color: #999">hexo</a> <a href="/tags/Java/" style="font-size: 1.1em; color: #999">Java</a> <a href="/tags/mysql/" style="font-size: 1.1em; color: #999">mysql</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" style="font-size: 1.1em; color: #999">数据库</a> <a href="/tags/ssh/" style="font-size: 1.1em; color: #999">ssh</a> <a href="/tags/Spring/" style="font-size: 1.1em; color: #999">Spring</a> <a href="/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B/" style="font-size: 1.1em; color: #999">多线程</a> <a href="/tags/conda/" style="font-size: 1.1em; color: #999">conda</a> <a href="/tags/nginx/" style="font-size: 1.1em; color: #999">nginx</a> <a href="/tags/git/" style="font-size: 1.1em; color: #999">git</a></div></div><div class="card-widget card-archives"><div class="item-headline"><i class="fas fa-archive"></i><span>Archives</span></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/08/"><span class="card-archive-list-date">August 2023</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/07/"><span class="card-archive-list-date">July 2023</span><span class="card-archive-list-count">6</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/06/"><span class="card-archive-list-date">June 2023</span><span class="card-archive-list-count">7</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2021/07/"><span class="card-archive-list-date">July 2021</span><span class="card-archive-list-count">1</span></a></li></ul></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>Info</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">Article :</div><div class="item-count">15</div></div><div class="webinfo-item"><div class="item-name">UV :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">PV :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">Last Push :</div><div class="item-count" id="last-push-date" data-lastPushDate="2023-08-29T14:08:56.694Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2023 By ming</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="Switch Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="Back To Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
