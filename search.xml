@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>SpringBoot实现登录拦截器</title>
+      <link href="/2023/08/25/%20SpringBoot%20%E5%AE%9E%E7%8E%B0%E7%99%BB%E5%BD%95%E6%8B%A6%E6%88%AA/"/>
+      <url>/2023/08/25/%20SpringBoot%20%E5%AE%9E%E7%8E%B0%E7%99%BB%E5%BD%95%E6%8B%A6%E6%88%AA/</url>
+      
+        <content type="html"><![CDATA[<h2 id="登录拦截器">登录拦截器</h2><p>在 SpringBoot 开发的项目中，通过实现拦截器来实现用户登录拦截并验证。</p><p>所有的用户请求先经过拦截器，由拦截器判断是否放行，再送往<code>Controller</code>层。</p><h2 id="SpringBoot-实现登录拦截的原理">SpringBoot 实现登录拦截的原理</h2><ul><li><p>SpringBoot 通过实现<code>HandlerInterceptor</code>接口实现拦截器，通过实现<code>WebMvcConfigurer</code>接口实现一个配置类，在配置类中注入拦截器，最后再通过 <code>@Configuration </code>注解注入配置。</p></li><li><p>实现<code>HandlerInterceptor</code>接口，可以实现 3 个方法：<code>preHandle</code>、<code>postHandle</code>、<code>afterCompletion</code>。</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">UserLoginInterceptor</span> <span class="keyword">implements</span> <span class="title class_">HandlerInterceptor</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/***</span></span><br><span class="line"><span class="comment">     * 在请求处理之前进行调用(Controller方法调用之前)</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="type">boolean</span> <span class="title function_">preHandle</span><span class="params">(HttpServletRequest request, </span></span><br><span class="line"><span class="params">                             HttpServletResponse response, Object handler)</span> <span class="keyword">throws</span> Exception &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;执行了拦截器的preHandle方法&quot;</span>);</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="type">HttpSession</span> <span class="variable">session</span> <span class="operator">=</span> request.getSession();</span><br><span class="line">            <span class="comment">//统一拦截（查询当前session是否存在user）(这里user会在每次登录成功后，写入session)</span></span><br><span class="line">            <span class="type">User</span> <span class="variable">user</span> <span class="operator">=</span> (User) session.getAttribute(USER_LOGIN_STATE);</span><br><span class="line">            <span class="keyword">if</span> (user != <span class="literal">null</span>) &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">//重定向登录页面</span></span><br><span class="line">            response.sendRedirect(request.getContextPath() + <span class="string">&quot;/user/login&quot;</span>);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        <span class="comment">//如果设置为false时，被请求时，拦截器执行到此处将不会继续操作</span></span><br><span class="line">        <span class="comment">//如果设置为true时，请求将会继续执行后面的操作</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/***</span></span><br><span class="line"><span class="comment">     * 请求处理之后进行调用，但是在视图被渲染之前（Controller方法调用之后）</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">postHandle</span><span class="params">(HttpServletRequest request, </span></span><br><span class="line"><span class="params">                           HttpServletResponse response, Object handler, ModelAndView modelAndView)</span> <span class="keyword">throws</span> Exception &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;执行了拦截器的postHandle方法&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/***</span></span><br><span class="line"><span class="comment">     * 整个请求结束之后被调用，也就是在DispatchServlet渲染了对应的视图之后执行（主要用于进行资源清理工作）</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">afterCompletion</span><span class="params">(HttpServletRequest request, HttpServletResponse response,</span></span><br><span class="line"><span class="params">                                Object handler, Exception ex)</span> <span class="keyword">throws</span> Exception &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;执行了拦截器的afterCompletion方法&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>通过这个拦截器，使得 <strong>Controller 在执行之前，都需要执行一遍<code>preHandle</code>。</strong></p></li><li><p>实现<code>WebMvcConfigurer</code>接口，注册拦截器</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">LoginConfig</span> <span class="keyword">implements</span> <span class="title class_">WebMvcConfigurer</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">addInterceptors</span><span class="params">(InterceptorRegistry registry)</span> &#123;</span><br><span class="line">        <span class="comment">//注册TestInterceptor拦截器</span></span><br><span class="line">        <span class="type">InterceptorRegistration</span> <span class="variable">registration</span> <span class="operator">=</span> registry.addInterceptor(<span class="keyword">new</span> <span class="title class_">UserLoginInterceptor</span>());</span><br><span class="line">        <span class="comment">//所有路径都被拦截</span></span><br><span class="line">        registration.addPathPatterns(<span class="string">&quot;/**&quot;</span>);</span><br><span class="line">        <span class="comment">//添加不拦截路径</span></span><br><span class="line">        registration.excludePathPatterns(</span><br><span class="line">                <span class="string">&quot;/user/login&quot;</span>,</span><br><span class="line">                <span class="string">&quot;/user/register&quot;</span>,</span><br><span class="line">                <span class="string">&quot;/**/*.html&quot;</span>,</span><br><span class="line">                <span class="string">&quot;/**/*.js&quot;</span>,</span><br><span class="line">                <span class="string">&quot;/**/*.css&quot;</span></span><br><span class="line">        );</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>将拦截器注册到了拦截器列表中，并且指明了拦截哪些访问路径，不拦截哪些访问路径，不拦截哪些资源文件；最后再以 <code>@Configuration </code>注解将配置注入。</p></li><li><p>保持登录状态</p><p>在第一次正确登录之后，就将<code>user</code>保存到<code>session</code>中，再次访问页面的时候，登录拦截器就可以找到这个<code>user</code>对象，就不需要再次拦截到登录界面了。</p></li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> 技术分享 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> SpringBoot </tag>
+            
+            <tag> Java </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Ubuntu 安装 Redis</title>
       <link href="/2023/07/20/Ubuntu%20%E5%AE%89%E8%A3%85%20Redis/"/>
       <url>/2023/07/20/Ubuntu%20%E5%AE%89%E8%A3%85%20Redis/</url>
@@ -274,33 +301,6 @@
           
       </categories>
       
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>SpringBoot实现登录拦截器</title>
-      <link href="/2023/06/28/%20SpringBoot%20%E5%AE%9E%E7%8E%B0%E7%99%BB%E5%BD%95%E6%8B%A6%E6%88%AA/"/>
-      <url>/2023/06/28/%20SpringBoot%20%E5%AE%9E%E7%8E%B0%E7%99%BB%E5%BD%95%E6%8B%A6%E6%88%AA/</url>
-      
-        <content type="html"><![CDATA[]]></content>
-      
-      
-      <categories>
-          
-          <category> 技术分享 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> SpringBoot </tag>
-            
-            <tag> Java </tag>
-            
-        </tags>
       
     </entry>
     
