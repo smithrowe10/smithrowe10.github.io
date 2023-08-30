@@ -156,6 +156,12 @@
       </categories>
       
       
+        <tags>
+            
+            <tag> Spring </tag>
+            
+        </tags>
+      
     </entry>
     
     
@@ -246,6 +252,8 @@
             
             <tag> 线程池 </tag>
             
+            <tag> ThreadLocal </tag>
+            
         </tags>
       
     </entry>
@@ -266,6 +274,33 @@
           
       </categories>
       
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>SpringBoot实现登录拦截器</title>
+      <link href="/2023/06/28/%20SpringBoot%20%E5%AE%9E%E7%8E%B0%E7%99%BB%E5%BD%95%E6%8B%A6%E6%88%AA/"/>
+      <url>/2023/06/28/%20SpringBoot%20%E5%AE%9E%E7%8E%B0%E7%99%BB%E5%BD%95%E6%8B%A6%E6%88%AA/</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+      
+      <categories>
+          
+          <category> 技术分享 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> SpringBoot </tag>
+            
+            <tag> Java </tag>
+            
+        </tags>
       
     </entry>
     
@@ -341,6 +376,12 @@
           
       </categories>
       
+      
+        <tags>
+            
+            <tag> RESTful </tag>
+            
+        </tags>
       
     </entry>
     
